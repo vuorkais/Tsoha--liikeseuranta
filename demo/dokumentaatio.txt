@@ -1,4 +1,4 @@
-#Aihe harjoitustyölle
+Aihe harjoitustyölle
 
 Tietokantasovellukseni harjoitustyö on telinevoimisteluun erikoistunut liikeseurantasovellus.
 Telinevoimistelijoilla on useita eri liikkeitä, joita he harjoittelevat(kullakin eri liikkeet keskenään) ja valmentajana on
@@ -10,7 +10,7 @@ harjoitellut kieppiä. Hän on suorittanut 5 kertaa onnistuneesti kiepin, mutta 
 merkitä ylös onnistuneet ja tehdyt suoritukset ja mahdolliset muut kommentit, esimerkiksi, jos suoritus on tehty avustuksella tai siihen
 on käytetty lisämattoja. Näin saadaan valmentajalle seurantatyökalu, jolla pysyä ajantasalla voimistelijoidensa liikkeiden harjoittelusta.
 
-######Toimintoja:
+Toimintoja:
 * Kirjautuminen
 * Liikkeen syöttö ja muokkaus
 * Uuden voimistelijan syöttö ja muokkaus
