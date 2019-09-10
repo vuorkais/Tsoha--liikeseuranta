@@ -29,3 +29,11 @@ Voimistelija-luokka sisältää pääavaimen(id) ja viiteavaimen vastuuvalmentaj
 VoimistelijaLiike- taulu on liitostaulu voimistelijan ja liikkeen välillä sisältäen niihin viiteavaimet.
    
 Vastuuvalmentaja(käyttäjä)-luokka sisältää pääavaimen(id) ja attribuuttina nimen.
+
+######Toimintoja:
+* Kirjautuminen
+* Liikkeen syöttö ja muokkaus
+* Uuden voimistelijan syöttö ja muokkaus
+* Suorituksen lisääminen ja poistaminen
+* Mahdollisuus saada lista voimistelijoista, liikkeistä ja suorituskerroista
+* Mahdollisuus järjestää em. listoja esimerkiksi ryhmien tai onnistumiskertojen perusteella 
