@@ -30,7 +30,7 @@ VoimistelijaLiike- taulu on liitostaulu voimistelijan ja liikkeen välillä sis�
    
 Vastuuvalmentaja(käyttäjä)-luokka sisältää pääavaimen(id) ja attribuuttina nimen.
 
-######Toimintoja:
+Toimintoja:
 * Kirjautuminen
 * Liikkeen syöttö ja muokkaus
 * Uuden voimistelijan syöttö ja muokkaus
