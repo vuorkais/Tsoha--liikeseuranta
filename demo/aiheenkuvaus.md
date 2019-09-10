@@ -1,5 +1,4 @@
-## LIIKESEURANTA- PALVELU
-## TIETOKANTASOVELLUS - AIHEKUVAUS
+## LIIKESEURANTA-PALVELU |TIETOKANTASOVELLUS - AIHEKUVAUS
 #### Vuorenmaa, Kaisla M
 #### Helsingin Yliopisto | 1. periodi 2019
 
@@ -30,7 +29,7 @@ VoimistelijaLiike- taulu on liitostaulu voimistelijan ja liikkeen välillä sis�
    
 Vastuuvalmentaja(käyttäjä)-luokka sisältää pääavaimen(id) ja attribuuttina nimen.
 
-##### Toimintoja:
+#### Toimintoja:
 * Kirjautuminen
 * Liikkeen syöttö ja muokkaus
 * Uuden voimistelijan syöttö ja muokkaus
