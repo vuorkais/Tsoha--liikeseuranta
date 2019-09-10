@@ -1,4 +1,4 @@
-# Tsoha
+# Tsoha--liikeseuranta
 Aiheen kuvaus:
 https://github.com/vuorkais/Tsoha/blob/master/demo/aiheenkuvaus.md
 
