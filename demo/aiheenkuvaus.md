@@ -1,9 +1,9 @@
-LIIKESEURANTA- PALVELU
-TIETOKANTASOVELLUS - AIHEKUVAUS
-Vuorenmaa, Kaisla M
-Helsingin Yliopisto | 1. periodi 2019
+## LIIKESEURANTA- PALVELU
+## TIETOKANTASOVELLUS - AIHEKUVAUS
+#### Vuorenmaa, Kaisla M
+#### Helsingin Yliopisto | 1. periodi 2019
 
-Aihe harjoitustyölle
+### Aihe harjoitustyölle
 
 Tietokantasovelluksen harjoitustyöni on telinevoimisteluun erikoistunut liikeseurantasovellus. 
 Telinevoimistelijoilla on useita eri liikkeitä, joita he harjoittelevat (kullakin eri liikkeet keskenään) 
@@ -30,7 +30,7 @@ VoimistelijaLiike- taulu on liitostaulu voimistelijan ja liikkeen välillä sis�
    
 Vastuuvalmentaja(käyttäjä)-luokka sisältää pääavaimen(id) ja attribuuttina nimen.
 
-Toimintoja:
+##### Toimintoja:
 * Kirjautuminen
 * Liikkeen syöttö ja muokkaus
 * Uuden voimistelijan syöttö ja muokkaus
