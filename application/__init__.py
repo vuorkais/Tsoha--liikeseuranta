@@ -20,7 +20,6 @@ from application import views
 # Luetaan kansiosta application tiedoston models sisältö
 from application.voimistelijat import models
 
-from application.voimistelijat import views
 
 # Luodaan lopulta tarvittavat tietokantataulut
 db.create_all()
