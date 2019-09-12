@@ -11,4 +11,4 @@ class Voimistelija(db.Model):
 	
     def __init__(self, name, ryhma):
         self.nimi = name
-        self.ryhma = ryhma
+        self.ryhma = "ryhma"
