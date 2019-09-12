@@ -1,6 +1,6 @@
 # Tuodaan Flask käyttöön
 from flask import Flask
-app = Flask(__name__)
+app = Flask(__name__,__ryhma__)
 
 # Tuodaan SQLAlchemy käyttöön
 from flask_sqlalchemy import SQLAlchemy
