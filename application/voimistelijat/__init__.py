@@ -10,6 +10,4 @@ db = SQLAlchemy(app)
 
 from application import views
 
-from application.voimistelijat import models
-
 db.create_all()
