@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Voimistelija</th>
+      <th>Ryhmä</th>
+    </tr>
+    {% for voimistelija in voimistelijat %}
+    <tr>
+      <td>{{ voimistelija.nimi }}</td>
+      <td>{{ voimistelija.ryhma }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
