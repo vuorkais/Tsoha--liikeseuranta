@@ -17,4 +17,4 @@ def voimistelijat_create():
     db.session().add(v)
     db.session().commit()
     
-    return "hei maailma!"
+    return redirect(url_for("voimistelijat_index"))
