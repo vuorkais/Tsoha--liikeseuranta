@@ -9,6 +9,6 @@ class Voimistelija(db.Model):
     nimi = db.Column(db.String(144), nullable=False)
     ryhma = db.Column(db.String(144), nullable=False)
 	
-    def __init__(self, nimi):
+    def __init__(self, nimi, ryhma):
         self.nimi = nimi
-        self.ryhma = "ryhma"
+        self.ryhma = ryhma
