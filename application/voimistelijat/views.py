@@ -7,10 +7,10 @@ def voimistelijat_form():
     return render_template("voimistelijat/uusi.html")
 
 @app.route("/voimistelijat/", methods=["POST"])
-def voimistelijat_create():
-    t = Task(request.form.get("nimi"))
+def tasks_create():
+    v = Voimistelija(request.form.get("nimi"))
 
-    db.session().add(t)
+    db.session().add(v)
     db.session().commit()
     
     return "hei maailma!"
