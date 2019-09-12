@@ -10,5 +10,5 @@ class Voimistelija(db.Model):
     ryhma = db.Column(db.String(144), nullable=False)
 	
     def __init__(self, name):
-	self.name = name
-	self.ryhma = ryhma
+        self.nimi = nimi
+        self.ryhma = ryhma
