@@ -11,11 +11,19 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///gymnasts.db"
 # Pyydetään SQLAlchemyä tulostamaan kaikki SQL-kyselyt
 app.config["SQLALCHEMY_ECHO"] = True
 
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
+
 # Luodaan db-olio, jota käytetään tietokannan käsittelyyn
 db = SQLAlchemy(app)
 
 # Luetaan kansiosta application tiedoston views sisältö
 from application import views
 
+# Luetaan kansiosta application tiedoston models sisältö
+from application.voimistelijat import models
+
 # Luodaan lopulta tarvittavat tietokantataulut
 db.create_all()
+
+
+
