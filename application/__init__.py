@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 # Käytetään gymnasts.db-nimistä SQLite-tietokantaa. Kolme vinoviivaa
 # kertoo, tiedosto sijaitsee tämän sovelluksen tiedostojen kanssa
 # samassa paikassa
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///gymnasts.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///voimistelijat.db"
 # Pyydetään SQLAlchemyä tulostamaan kaikki SQL-kyselyt
 app.config["SQLALCHEMY_ECHO"] = True
 
