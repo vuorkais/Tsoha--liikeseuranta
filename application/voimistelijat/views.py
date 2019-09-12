@@ -6,7 +6,7 @@ def voimistelijat_form():
     return render_template("voimistelijat/uusi.html")
 
 @app.route("/voimistelijat/", methods=["POST"])
-def voimistelijat_create():
+def tasks_create():
     t = Task(request.form.get("nimi"))
 
     db.session().add(t)
