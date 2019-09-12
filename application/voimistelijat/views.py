@@ -7,6 +7,9 @@ def voimistelijat_form():
 
 @app.route("/voimistelijat/", methods=["POST"])
 def voimistelijat_create():
-    print(request.form.get("name"))
+    t = Task(request.form.get("nimi"))
 
+    db.session().add(t)
+    db.session().commit()
+    
     return "hei maailma!"
