@@ -7,6 +7,6 @@ def voimistelijat_form():
 
 @app.route("/voimistelijat/", methods=["POST"])
 def voimistelijat_create():
-    print(request.form.get("nimi"))
+    print(request.form.get("name"))
 
     return "hei maailma!"
