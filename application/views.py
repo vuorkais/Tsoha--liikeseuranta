@@ -1,5 +1,5 @@
 from application import app, db
-from flask import render_template, request
+from flask import render_template, request, request, url_for
 from application.voimistelijat.models import Voimistelija
 
 @app.route("/voimistelijat", methods=["GET"])
