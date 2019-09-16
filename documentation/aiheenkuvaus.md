@@ -29,10 +29,10 @@ VoimistelijaLiike- taulu on liitostaulu voimistelijan ja liikkeen välillä sis�
    
 Vastuuvalmentaja(käyttäjä)-luokka sisältää pääavaimen(id) ja attribuuttina nimen.
 
-#### Toimintoja:
-* Kirjautuminen
-* Liikkeen syöttö ja muokkaus
-* Uuden voimistelijan syöttö ja muokkaus
-* Suorituksen lisääminen ja poistaminen
-* Mahdollisuus saada lista voimistelijoista, liikkeistä ja suorituskerroista
-* Mahdollisuus järjestää em. listoja esimerkiksi ryhmien tai onnistumiskertojen perusteella 
+#### User storyt:
+* Valmentaja voi kirjautua järjestelmään
+* Valmentaja voi lisätä, muokata ja poistaa liikkeitä
+* Valmentaja voi lisätä, muokata ja poistaa voimistelijoita
+* Valmentaja voi lisätä, muokata ja poistaa suorituksia
+* Valmentaja voi tehdä listoja voimistelijoista, liikkeistä ja suorituskerroista ja järjestellä tekemiään listoja esimerkiksi ryhmien tai onnistumiskertojen perusteella
+* Valmentaja voi tarkastella voimistelijoiden suorituksia
