@@ -19,7 +19,7 @@ def voimistelijat_create():
     
     return redirect(url_for("voimistelijat_index"))
 
-@app.route("/voimistelijat/<voimistelijat_id>/", methods=["POST"])
+@app.route("/voimistelijat/<voimistelija_id>/", methods=["POST"])
 def voimistelijat_set_name(voimistelija_id):
  
     t = Task.query.get(voimistelija_id)
