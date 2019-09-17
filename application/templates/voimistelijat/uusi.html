@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
   
 {% block body %}
+  <table>
+    <tr>
+      <th>Voimistelija</th>
+      <th>Ryhmä</th>
+    </tr>
+  </table>
 <form method="POST" action="{{ url_for('voimistelijat_create') }}">
   <input type="text" name="nimi"/>
   <input type="text" name="ryhma"/>
