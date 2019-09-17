@@ -23,7 +23,8 @@ def voimistelijat_create():
 def voimistelijat_set_name(voimistelija_id):
  
     t = Task.query.get(voimistelija_id)
-    t.nimi = "uusi nimi"
+    n = Task.query.get(new_name)
+    t.nimi = n.
     db.session().commit()
   
-    return redirect(url_for("tasks_index"))
+    return redirect(url_for("voimistelijat_index"))
