@@ -18,3 +18,12 @@ def voimistelijat_create():
     db.session().commit()
     
     return redirect(url_for("voimistelijat_index"))
+
+@app.route("/voimistelijat/<voimistelijat_id>/", methods=["POST"])
+def voimistelijat_set_name(voimistelija_id):
+ 
+    t = Task.query.get(voimistelija_id)
+    t.nimi = "uusi nimi"
+    db.session().commit()
+  
+    return redirect(url_for("tasks_index"))
