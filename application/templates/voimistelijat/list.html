@@ -10,6 +10,11 @@
     <tr>
       <td>{{ voimistelija.nimi }}</td>
       <td>{{ voimistelija.ryhma }}</td>
+      <td>
+	      <form method="POST" action="{{ url_for('voimistelijat_set_name', voimistelija_id=voimistelija.id)}}">
+	        <input type="submit" value="Vaihda nimeksi 'Maija'!"/>
+	      </form>
+      </td>
     </tr>
     {% endfor %}
   </table>
