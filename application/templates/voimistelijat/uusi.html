@@ -2,10 +2,10 @@
   
 {% block body %}
 <form method="POST" action="{{ url_for('voimistelijat_create') }}">
-  <input type="text" name="nimi"/>
   <th>Voimistelijan nimi</th>
+  <input type="text" name="nimi"/>
+  <th>Voimistelijan ryhmä</th>  
   <input type="text" name="ryhma"/>
-  <th>Voimistelijan ryhmä</th>
   <input type="submit" value="Lisää uusi voimistelija"/>
 </form>
 {% endblock %}
