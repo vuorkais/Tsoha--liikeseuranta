@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import StringField, validators
 
 class VoimistelijaForm(FlaskForm):
     nimi = StringField("Voimistelijan nimi", [validators.Length(min=2)])
