@@ -1,20 +1,20 @@
 {% extends "layout.html" %}
   
 {% block body %}
-<form method="POST" action="{{ url_for('voimistelijat_create') }}">
-  <table>
-    <tr>
-	    <td>
-	      {{ form.name.label }}
-	    </td>
-	    <td>
-	      {{ form.name }}
-	    </td>
-    </tr>
-    <tr>
-	    <td colspan="2">
-	      <input type="submit" value="Lisää uusi voimistelija"/>
-	    </td>
-    </tr>
-</form>
+  <form method="POST" action="{{ url_for('voimistelijat_create') }}">
+    <table>
+      <tr>
+	<td>
+	  {{ form.name.label }}
+	</td>
+	<td>
+	  {{ form.name }}
+	</td>
+      </tr>
+      <tr>
+	<td colspan="2">
+	  <input type="submit" value="Lisää voimistelija"/>
+	</td>
+      </tr>
+  </form>
 {% endblock %}
