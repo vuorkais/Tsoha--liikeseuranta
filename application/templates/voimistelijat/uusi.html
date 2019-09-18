@@ -10,6 +10,13 @@
 	<td>
 	  {{ form.nimi }}
 	</td>
+	<td>
+	  <ul>
+	    {% for error in form.nimi.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+	</td>
       </tr>
       <tr>
 	<td>
@@ -17,6 +24,13 @@
 	</td>
 	<td>
 	  {{ form.ryhma }}
+	</td>
+	<td>
+	  <ul>
+	    {% for error in form.ryhma.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
 	</td>
       </tr>
       <tr>
