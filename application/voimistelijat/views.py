@@ -23,7 +23,7 @@ def voimistelijat_create():
 def voimistelijat_set_name(voimistelija_id):
  
     v = Voimistelija.query.get(voimistelija_id)
-    v.nimi = Voimistelija(request.form.get("nimi"))
+    v.nimi = Voimistelija.query.get("nimi")
     db.session().commit()
   
     return redirect(url_for("voimistelijat_index"))
