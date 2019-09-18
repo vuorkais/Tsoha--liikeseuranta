@@ -21,7 +21,7 @@ def voimistelijat_create():
 
 @app.route("/voimistelijat/vaihto/")
 def voimistelijat_vaihto():
-    return render_template("voimistelijat/vaihto.html")
+    return render_template("voimistelijat/vaihto.html", voimistelijat = Voimistelija.query.all())
 
 @app.route("/voimistelijat/<voimistelija_id>/", methods=["POST"])
 def voimistelijat_set_name(voimistelija_id):
