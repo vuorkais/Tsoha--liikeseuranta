@@ -11,7 +11,7 @@
       <td>{{ voimistelija.nimi }}</td>
       <td>{{ voimistelija.ryhma }}</td>
        <td>
-	<form method="POST" action="{{ url_for('voimistelijat_set_group', voimistelija_id=voimistelija.id) }}">
+	<form method="POST" action="{{ url_for('voimistelijat_set_ryhma', voimistelija_id=voimistelija.id) }}">
 	  <input type="submit" value="Aseta ryhmäksi 'Topteam'"/>
 	</form>
       </td>
