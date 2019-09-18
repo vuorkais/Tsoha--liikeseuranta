@@ -9,7 +9,7 @@ def voimistelijat_index():
 
 @app.route("/voimistelijat/uusi/")
 def voimistelijat_form():
-    return render_template("voimistelijat/uusi.html", form = TaskForm())
+    return render_template("voimistelijat/uusi.html", form = VoimistelijaForm())
 
 @app.route("/voimistelijat/<voimistelija_id>/", methods=["POST"])
 def voimistelijat_set_ryhma(voimistelija_id):
