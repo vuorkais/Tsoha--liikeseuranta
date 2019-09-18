@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
 
-class TaskForm(FlaskForm):
+class VoimistelijaForm(FlaskForm):
     nimi = StringField("Voimistelijan nimi")
     ryhma = StringField("Voimistelijan ryhmä")
  
