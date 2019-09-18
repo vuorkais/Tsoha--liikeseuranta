@@ -2,12 +2,19 @@
   
 {% block body %}
 <form method="POST" action="{{ url_for('voimistelijat_create') }}">
-  <th>Voimistelijan nimi:</th>
-  <input type="text" name="nimi"/>
-  <br>
-  <th>Voimistelijan ryhmä:</th>  
-  <input type="text" name="ryhma"/>
-  <br>
-  <input type="submit" value="Lisää uusi voimistelija"/>
+  <table>
+    <tr>
+	    <td>
+	      {{ form.name.label }}
+	    </td>
+	    <td>
+	      {{ form.name }}
+	    </td>
+    </tr>
+    <tr>
+	    <td colspan="2">
+	      <input type="submit" value="Lisää uusi voimistelija"/>
+	    </td>
+    </tr>
 </form>
 {% endblock %}
