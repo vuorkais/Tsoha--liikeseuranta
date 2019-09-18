@@ -22,9 +22,9 @@ def voimistelijat_set_ryhma(voimistelija_id):
 
 @app.route("/voimistelijat/", methods=["POST"])
 def voimistelijat_create():
-    v = Voimistelija(request.form.get("nimi"), request.form.get("ryhma"))
+    form = VoimistelijaForm(request.form)
 
-    db.session().add(v)
-    db.session().commit()
+    v = Voimistelija(form.nimi.data)
+    v.ryhma = form.ryhma.data
     
     return redirect(url_for("voimistelijat_index"))
