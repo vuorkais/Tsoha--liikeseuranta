@@ -18,7 +18,7 @@ db = SQLAlchemy(app)
 from application import views
 from application.voimistelijat import models
 from application.voimistelijat import views
-from application.auth import models 
+from application.templates.auth import models 
 
 # Luodaan lopulta tarvittavat tietokantataulut
 db.create_all()
