@@ -24,7 +24,6 @@ def voimistelijat_set_ryhma(voimistelija_id):
 def voimistelijat_create():
     form = VoimistelijaForm(request.form)
 
-    v = Voimistelija(form.nimi.data)
-    v.ryhma = form.ryhma.data
+    v = Voimistelija(form.nimi.data,form.ryhma.data)
     
     return redirect(url_for("voimistelijat_index"))
