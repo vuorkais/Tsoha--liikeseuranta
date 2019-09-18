@@ -19,12 +19,15 @@ def voimistelijat_create():
     
     return redirect(url_for("voimistelijat_index"))
 
+@app.route("/voimistelijat/vaihto/")
+def voimistelijat_vaihto():
+    return render_template("voimistelijat/vaihto.html")
+
 @app.route("/voimistelijat/<voimistelija_id>/", methods=["POST"])
 def voimistelijat_set_name(voimistelija_id):
  
     a = Voimistelija.query.get(voimistelija_id)
-    v = Voimistelija(request.form.get("nimi"), request.form.get("ryhma"))
-    a.nimi = Voimistelija(request.form.get("nimi"), request.form.get("ryhma"))
+    a.nimi = "moi"
     db.session().commit()
   
     return redirect(url_for("voimistelijat_index"))
