@@ -14,12 +14,11 @@ app.config["SQLALCHEMY_ECHO"] = True
 # Luodaan db-olio, jota käytetään tietokannan käsittelyyn
 db = SQLAlchemy(app)
 
-# Luetaan kansiosta application tiedoston views sisältö
+# Luetaan kansiosta application tiedostojen models ja views sisältö
 from application import views
-
-# Luetaan kansiosta application tiedoston models sisältö
 from application.voimistelijat import models
 from application.voimistelijat import views
+from application.auth import models 
 
 # Luodaan lopulta tarvittavat tietokantataulut
 db.create_all()
