@@ -24,7 +24,7 @@ def voimistelijat_set_name(voimistelija_id):
  
     a = Voimistelija.query.get(voimistelija_id)
     v = Voimistelija(request.form.get("nimi"), request.form.get("ryhma"))
-    a.nimi = "nimi"
+    a.nimi = Voimistelija(request.form.get("nimi"), request.form.get("ryhma"))
     db.session().commit()
   
     return redirect(url_for("voimistelijat_index"))
