@@ -10,6 +10,15 @@ def voimistelijat_index():
 def voimistelijat_form():
     return render_template("voimistelijat/uusi.html")
 
+@app.route("/voimistelijat/<voimistelija_id>/", methods=["POST"])
+def voimistelijat_set_ryhma(voimistelija_id):
+
+    v = Voimistelija.query.get(voimistelija_id)
+    v.ryhma = "Topteam"
+    db.session().commit()
+  
+    return redirect(url_for("voimistelijat_index"))
+
 @app.route("/voimistelijat/", methods=["POST"])
 def voimistelijat_create():
     v = Voimistelija(request.form.get("nimi"), request.form.get("ryhma"))
@@ -17,13 +26,4 @@ def voimistelijat_create():
     db.session().add(v)
     db.session().commit()
     
-    return redirect(url_for("voimistelijat_index"))
-
-@app.route("/voimistelijat/<voimistelija_id>/", methods=["POST"])
-def voimistelijat_set_name(voimistelija_id):
- 
-    a = Voimistelija.query.get(voimistelija_id)
-    a.nimi = "moi"
-    db.session().commit()
-  
     return redirect(url_for("voimistelijat_index"))
