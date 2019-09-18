@@ -22,8 +22,8 @@ def voimistelijat_create():
 @app.route("/voimistelijat/<voimistelija_id>/", methods=["POST"])
 def voimistelijat_set_name(voimistelija_id):
  
-    v = Voimistelija.query.get(voimistelija_id, uusinimi)
-    v.nimi = uusinimi
+    v = Voimistelija.query.get(voimistelija_id, nimi)
+    v.nimi = nimi
     db.session().commit()
   
     return redirect(url_for("voimistelijat_index"))
