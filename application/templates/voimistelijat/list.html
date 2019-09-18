@@ -11,7 +11,9 @@
       <td>{{ voimistelija.nimi }}</td>
       <td>{{ voimistelija.ryhma }}</td>
       <td>
-	      <form method="POST" action="{{ url_for('voimistelijat_set_name', voimistelija_id=voimistelija.id)}}">
+	      <th>Vaihda voimistelijan nimeä:</th>
+	      <input type="text" name="uusinimi"/>
+	      <form method="POST" action="{{ url_for('voimistelijat_set_name', voimistelija_id=voimistelija.id, uusinimi=uusinimi)}}">
 	        <input type="submit" value="Vaihda nimeksi 'Maija'!"/>
 	      </form>
       </td>
