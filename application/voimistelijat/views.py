@@ -1,6 +1,7 @@
 from application import app, db
 from flask import render_template, redirect, request, url_for
 from application.voimistelijat.models import Voimistelija
+from application.voimistelijat.forms import TaskForm
 
 @app.route("/voimistelijat", methods=["GET"])
 def voimistelijat_index():
@@ -8,7 +9,7 @@ def voimistelijat_index():
 
 @app.route("/voimistelijat/uusi/")
 def voimistelijat_form():
-    return render_template("voimistelijat/uusi.html")
+    return render_template("voimistelijat/uusi.html", form = TaskForm())
 
 @app.route("/voimistelijat/<voimistelija_id>/", methods=["POST"])
 def voimistelijat_set_ryhma(voimistelija_id):
