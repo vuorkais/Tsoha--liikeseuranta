@@ -11,11 +11,11 @@
       <td>{{ voimistelija.nimi }}</td>
       <td>{{ voimistelija.ryhma }}</td>
       <td>
-	      <th>Vaihda voimistelijan nimeä:</th>
-	      <input type="text" name="uusinimi"/>
-	      <form method="POST" action="{{ url_for('voimistelijat_set_name', voimistelija_id=voimistelija.id, uusinimi=uusinimi)}}">
-	        <input type="submit" value="Vaihda nimeksi 'Maija'!"/>
-	      </form>
+        <th>Vaihda voimistelijan nimeä:</th>
+	<input type="text" name="nimi"/>
+	<form method="POST" action="{{ url_for('voimistelijat_set_name', voimistelija_id=voimistelija.id, uusinimi=nimi)}}">
+	<input type="submit" value="Vaihda nimeä'!"/>
+	</form>
       </td>
     </tr>
     {% endfor %}
