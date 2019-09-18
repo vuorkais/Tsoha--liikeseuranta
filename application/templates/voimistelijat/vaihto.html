@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('voimistelijat_id') }}">
+  <th>Voimistelijan id:</th>
+    <input type="text" name="id"/>
+  <th>Vaihda voimistelijan nimeä:</th>
+    <input type="text" name="nimi"/>
+  <br>
+  <th>Vaihda voimistelijan ryhmää:</th>  
+    <input type="text" name="ryhma"/>
+  <br>
+  <input type="submit" value="Vaihda"/>
+</form>
+{% endblock %}
