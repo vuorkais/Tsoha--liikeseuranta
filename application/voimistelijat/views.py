@@ -1,7 +1,7 @@
 from application import app, db
 from flask import render_template, redirect, request, url_for
 from application.voimistelijat.models import Voimistelija
-from application.voimistelijat.forms import TaskForm
+from application.voimistelijat.forms import VoimistelijaForm
 
 @app.route("/voimistelijat", methods=["GET"])
 def voimistelijat_index():
