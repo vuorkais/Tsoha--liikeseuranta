@@ -31,7 +31,7 @@ Vastuuvalmentaja(käyttäjä)-luokka sisältää pääavaimen(id) ja attribuutti
 
 #### User storyt:
 * Valmentaja voi kirjautua järjestelmään
-* Valmentaja voi lisätä, muokata ja poistaa liikkeitä
+* Valmentaja voi lisätä, muokata ja poistaa liikkeitä, joille voi antaa ominaisuuksia, kuten vaikeusarvon
 * Valmentaja voi lisätä, muokata ja poistaa voimistelijoita
 * Valmentaja voi lisätä, muokata ja poistaa suorituksia
 * Valmentaja voi tehdä listoja voimistelijoista, liikkeistä ja suorituskerroista ja järjestellä tekemiään listoja esimerkiksi ryhmien tai onnistumiskertojen perusteella
