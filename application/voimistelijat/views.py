@@ -24,6 +24,9 @@ def voimistelijat_set_ryhma(voimistelija_id):
 def voimistelijat_create():
     form = VoimistelijaForm(request.form)
     
+    if not form.validate():
+        return render_template("voimistelijat/uusi.html", form = form)
+    
     v = Voimistelija(form.nimi.data,form.ryhma.data)
     
     db.session().add(v)
