@@ -19,11 +19,11 @@ def voimistelijat_create():
     
     return redirect(url_for("voimistelijat_index"))
 
-@app.route("/voimistelijat/vaihto/")
+@app.route("/voimistelijat/<voimistelija_id>/")
 def voimistelijat_vaihto():
     return render_template("voimistelijat/vaihto.html", voimistelijat = Voimistelija.query.all())
 
-@app.route("/voimistelijat/<voimistelija_id>/", methods=["POST"])
+@app.route("/voimistelijat/<voimistelija_idb>/", methods=["POST"])
 def voimistelijat_set_name(voimistelija_id):
  
     a = Voimistelija.query.get(voimistelija_id)
