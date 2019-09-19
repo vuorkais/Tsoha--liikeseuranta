@@ -19,5 +19,5 @@ def auth_login():
                                error = "Käyttäjänimeä tai salasanaa ei löydy!")
 
 
-    print("Käyttäjä " + user.name + " tunnistettiin")
+    login_user(user)
     return redirect(url_for("index")) 
