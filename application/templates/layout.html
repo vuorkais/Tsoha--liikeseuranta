@@ -8,16 +8,15 @@
     <body>
       {% if current_user.is_authenticated %}
       <p>
-	Kirjautunut nimellä {{ current_user.name }}
+	Kirjautunut nimellä {{ current_user.name }}. <a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
+      </p>
       </p>
       {% else %}
       <a href="{{ url_for('auth_login') }}">Kirjaudu sisään</a>
-      <p>
-        tai
-      </p>
+      <p> tai </p>
       <a href="{{ url_for('accounts_form') }}">Rekisteröidy</a>
       {% endif %}
-      
+
       <ul>
 	      <li><a href="{{ url_for('voimistelijat_index') }}">Listaa voimistelijat</a></li>
 	      <li><a href="{{ url_for('voimistelijat_form') }}">Lisää voimistelija</a></li>
