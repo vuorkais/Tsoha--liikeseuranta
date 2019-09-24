@@ -1,5 +1,7 @@
-from application import app, db
 from flask import render_template, redirect, request, url_for
+from flask_login import login_required
+
+from application import app, db
 from application.voimistelijat.models import Voimistelija
 from application.voimistelijat.forms import VoimistelijaForm
 
@@ -8,10 +10,12 @@ def voimistelijat_index():
     return render_template("voimistelijat/list.html", voimistelijat = Voimistelija.query.all())
 
 @app.route("/voimistelijat/uusi/")
+@login_required
 def voimistelijat_form():
     return render_template("voimistelijat/uusi.html", form = VoimistelijaForm())
 
 @app.route("/voimistelijat/<voimistelija_id>/", methods=["POST"])
+@login_required
 def voimistelijat_set_ryhma(voimistelija_id):
 
     v = Voimistelija.query.get(voimistelija_id)
@@ -21,6 +25,7 @@ def voimistelijat_set_ryhma(voimistelija_id):
     return redirect(url_for("voimistelijat_index"))
 
 @app.route("/voimistelijat/", methods=["POST"])
+@login_required
 def voimistelijat_create():
     form = VoimistelijaForm(request.form)
     
