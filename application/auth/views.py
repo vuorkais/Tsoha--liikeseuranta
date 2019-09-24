@@ -5,13 +5,14 @@ from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm
 from application.auth.forms import SigninForm
+from wtforms import validators
 
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():
     if request.method == "GET":
         return render_template("auth/loginform.html", form = LoginForm())
 
-    form = LoginForm(request.form)
+    form = LoginForm(request.form, [validators.required()])
     # mahdolliset validoinnit
 
     user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
