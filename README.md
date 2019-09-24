@@ -7,3 +7,5 @@ Tietokantasovelluksen harjoitustyöni on telinevoimisteluun erikoistunut liikese
 [Tietokantakaavio kuvana](https://github.com/vuorkais/Tsoha--liikeseuranta/blob/master/documentation/Tietokantataulu.png)
 
 [Linkki herokuun](https://tsoha-liikeseuranta.herokuapp.com)
+
+Testikäyttäjätunnukset voi luoda rekisteröitymällä käyttäjäksi.
