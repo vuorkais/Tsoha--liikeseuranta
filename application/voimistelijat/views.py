@@ -33,6 +33,7 @@ def voimistelijat_create():
         return render_template("voimistelijat/uusi.html", form = form)
     
     v = Voimistelija(form.nimi.data,form.ryhma.data)
+    v.vastuuvalmentaja_id = current_user.id
     
     db.session().add(v)
     db.session().commit()
