@@ -12,7 +12,8 @@ def auth_login():
     if request.method == "GET":
         return render_template("auth/loginform.html", form = LoginForm())
 
-    form = LoginForm(request.form, [validators.required()])
+    form = LoginForm(request.form)
+    LoginForm(validators.required)
     # mahdolliset validoinnit
 
     user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
@@ -30,11 +31,11 @@ def auth_logout():
     return redirect(url_for("index")) 
 
 @app.route("/auth/signin")
-def accounts_form():
+def vastuuvalmentajat_form():
     return render_template("auth/signinform.html", form = SigninForm())
 
 @app.route("/auth/sign/", methods=["POST"])
-def accounts_create():
+def vastuuvalmentajat_create():
     form = SigninForm(request.form)
 
     if not form.validate():
