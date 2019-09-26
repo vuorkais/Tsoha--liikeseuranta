@@ -10,7 +10,8 @@ class LoginForm(FlaskForm):
 class SigninForm(FlaskForm):
     name = StringField("Nimi", [validators.Length(min=2, max=144, message="Nimi on liian lyhyt tai pitkä!")])
     username = StringField("Käyttäjänimi", [validators.Length(min=2, max=20, message="Käyttäjänimi on liian lyhyt tai pitkä!")])
-    password = PasswordField("Salasana", [validators.Length(min=8, max=20, message="Salasana on liian lyhyt tai pitkä!")])
-  
+    password = PasswordField('Uusi salasana', [validators.InputRequired(), validators.EqualTo('confirm', message='Syötettyjen salasanojen pitää vastata toisiaan!')])
+    confirm  = PasswordField('Toista salasana')
+
     class Meta:
         csrf = False
