@@ -1,7 +1,36 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <p>
-    Hello world!
-  </p>
+<p>
+  Hello world!
+</p>
+{% if telineena_puomi is defined %}
+<p>
+  Seuraavat listatut liikkeet ovat puomiliikkeitä:
+</p>
+
+<ul>
+  {% for liike in telineena_puomi %}
+  <li>
+    {{liike.id}} {{liike.nimi}} {{liike.teline}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+{% if bhaki_valkku is defined %}
+<p>
+  Seuraavilla valmentajilla on voimistelijoita B-haki ryhmässä:
+</p>
+
+<ul>
+  {% for user in bhaki_valkku %}
+  <li>
+    {{user.id}} {{user.name}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
 {% endblock %}

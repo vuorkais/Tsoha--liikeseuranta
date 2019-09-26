@@ -1,6 +1,8 @@
 from application import db
 from application.models import Base
 
+from sqlalchemy.sql import text
+
 class User(Base):
 
     __tablename__ = "vastuuvalmentaja"
@@ -27,3 +29,18 @@ class User(Base):
 
     def is_authenticated(self):
         return True
+
+    @staticmethod
+    def listaa_bhaki():
+        stmt = text("SELECT Vastuuvalmentaja.id, Vastuuvalmentaja.name FROM Vastuuvalmentaja"
+                    " LEFT JOIN Voimistelija ON Voimistelija.vastuuvalmentaja_id = Vastuuvalmentaja.id"
+                    " WHERE (Voimistelija.ryhma = :b)"
+                    " GROUP BY Vastuuvalmentaja.id").params(b='B-haki')
+                    #" HAVING COUNT(Voimistelija.id) = 0")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"id":row[0], "name":row[1]})
+
+        return response

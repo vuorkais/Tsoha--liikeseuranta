@@ -11,3 +11,4 @@ class Voimistelija(Base):
     def __init__(self, nimi, ryhma):
         self.nimi = nimi
         self.ryhma = ryhma
+
