@@ -49,3 +49,14 @@ def voimistelijat_create():
     db.session().commit()
     
     return redirect(url_for("voimistelijat_index"))
+
+@app.route("/voimistelijat/<voimistelija_id>/remove", methods=["POST"])
+@login_required
+def voimistelijat_remove(voimistelija_id):
+
+    v = Voimistelija.query.get(voimistelija_id)
+    
+    db.session().delete(v)
+    db.session().commit()
+  
+    return redirect(url_for("voimistelijat_index"))

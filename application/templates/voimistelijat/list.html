@@ -16,7 +16,10 @@
   </form>
   <form method="POST" action="{{ url_for('voimistelijat_set_ryhmaC', voimistelija_id=voimistelija.id) }}">
 	  <input type="submit" value="Aseta ryhmäksi 'C-haki'"/>
-	</form>
+  </form>
+  <form method="POST" action="{{ url_for('voimistelijat_remove', voimistelija_id=voimistelija.id) }}">
+      <input type="submit" value="Poista voimistelija"/>
+    </form>
       </td>
     </tr>
     {% endfor %}
