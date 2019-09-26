@@ -29,4 +29,4 @@ def suoritukset_create():
     db.session().add(s)
     db.session().commit()
     
-    return redirect(url_for("liikkeet_index"))
+    return redirect(url_for("suoritukset_index"))
