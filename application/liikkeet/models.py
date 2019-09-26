@@ -19,8 +19,8 @@ class Liike(Base):
     @staticmethod
     def etsi_puomiliikkeet():
         stmt = text("SELECT Liike.id, Liike.nimi, Liike.teline FROM Liike"
-                    " WHERE (Liike.teline IS 'Puomi')"
-                    " GROUP BY Liike.id")
+                    " WHERE (Liike.teline = :pu)"
+                    " GROUP BY Liike.id").params(pu='Puomi')
         res = db.engine.execute(stmt)
   
         response = []
