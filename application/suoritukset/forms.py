@@ -2,9 +2,10 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, validators, IntegerField, DateField
 
 class SuoritusForm(FlaskForm):
-    tehtyja = IntegerField("Tehtyjen määrä", [validators.])
-    nimi = StringField("Voimistelijan nimi", [validators.Length(min=2, max=144, message="Nimi on liian lyhyt tai pitkä!")])
-    ryhma = StringField("Voimistelijan ryhmä", [validators.Length(min=2, max=144, message="Ryhmän nimi on liian lyhyt tai pitkä!")])
+    tehtyja = IntegerField("Tehtyjen määrä", [validators.NumberRange(min=0, max=None, message="Tehtyjen määrä ei voi olla negatiivinen!")])
+    onnistuneita = IntegerField("Onnistuneiden määrä", [validators.NumberRange(min=0, max=None, message="Onnistuneiden määrä ei voi olla negatiivinen!")])
+    harjoituskerta = DateField("Päivämäärä")
+    muuta = StringField("Muuta")
  
     class Meta:
         csrf = False
