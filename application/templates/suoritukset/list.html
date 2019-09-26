@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Tehtyjä</th>
+      <th>Onnistuneita</th>
+      <th>Harjoituskerta</th>
+      <th>Muuta</th>
+    </tr>
+    {% for suoritus in suoritukset %}
+    <tr>
+      <td>{{ suoritus.tehtyja }}</td>
+      <td>{{ suoritus.onnistuneita }}</td>
+      <td>{{ suoritus.harjoituskerta }}</td>
+      <td>{{ suoritus.muuta }}</td>
+      <td>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

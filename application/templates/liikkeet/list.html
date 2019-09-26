@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Liike</th>
+      <th>Teline</th>
+      <th>Vaikeusarvo</th>
+      <th>kuvaus</th>
+    </tr>
+    {% for liike in liikkeet %}
+    <tr>
+      <td>{{ liike.nimi }}</td>
+      <td>{{ liike.teline }}</td>
+      <td>{{ liike.vaikeusarvo }}</td>
+      <td>{{ liike.kuvaus }}</td>
+      <td>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

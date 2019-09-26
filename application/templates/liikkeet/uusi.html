@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+  <form method="POST" action="{{ url_for('liikkeet_create') }}">
+    <table>
+      <tr>
+	<td>
+	  {{ form.nimi.label }}
+	</td>
+	<td>
+	  {{ form.nimi }}
+	</td>
+	<td>
+	  <ul>
+	    {% for error in form.nimi.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  {{ form.teline.label }}
+	</td>
+	<td>
+	  {{ form.teline }}
+	</td>
+	<td>
+	  <ul>
+	    {% for error in form.teline.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+	</td>
+      </tr>
+      <tr>
+    <td>
+      {{ form.vaikeusarvo.label }}
+    </td>
+    <td>
+      {{ form.vaikeusarvo }}
+    </td>
+    <td>
+      <ul>
+        {% for error in form.vaikeusarvo.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </td>
+      </tr>
+      <tr>
+    <td>
+      {{ form.kuvaus.label }}
+    </td>
+    <td>
+      {{ form.kuvaus }}
+    </td>
+    <td>
+      <ul>
+        {% for error in form.kuvaus.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </td>
+      </tr>
+
+	<td colspan="2">
+	  <input type="submit" value="Lisää liike"/>
+	</td>
+      </tr>
+  </form>
+{% endblock %}
