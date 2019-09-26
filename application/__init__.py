@@ -6,7 +6,7 @@ app = Flask(__name__)
 from flask_sqlalchemy import SQLAlchemy
 
 import os
-# Käytetään gymnasts.db-nimistä SQLite-tietokantaa. Kolme vinoviivaa
+# Käytetään voimistelijat.db-nimistä SQLite-tietokantaa. Kolme vinoviivaa
 # kertoo, tiedosto sijaitsee tämän sovelluksen tiedostojen kanssa
 # samassa paikassa
 if os.environ.get("HEROKU"):
@@ -25,6 +25,10 @@ from application.voimistelijat import models
 from application.voimistelijat import views
 from application.auth import models 
 from application.auth import views 
+from application.liikkeet import models
+from application.liikkeet import views
+from application.suoritukset import models
+from application.suoritukset import views
 
 # kirjautuminen
 from application.auth.models import User
