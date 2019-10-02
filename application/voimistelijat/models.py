@@ -21,17 +21,17 @@ class Voimistelija(Base):
     def __init__(self, nimi):
         self.nimi = nimi
 
-    @staticmethod
-    def listaa_liikkeet():
-        stmt = text("SELECT voimistelija.id, voimistelija.nimi, liike.nimi, liike.teline  FROM Voimistelija"
-            +"LEFT JOIN Voimistelijaliike ON voimistelija.id = voimistelijaliike.voimistelija_id"
-            +"LEFT JOIN Liike ON voimistelijaliike.liike_id = liike.id"
-            + "GROUP BY voimistelija.id, liike.nimi")
-        res = db.engine.execute(stmt)
-        response = []
-        for row in res:
-            response.append({"id":row[0], "voimistelija":row[1], "liike":row[2], "teline":row[3]})
-        return response
+#    @staticmethod
+#    def listaa_liikkeet():
+#        stmt = text("SELECT voimistelija.id, voimistelija.nimi, liike.nimi, liike.teline  FROM Voimistelija"
+#            +"LEFT JOIN Voimistelijaliike ON voimistelija.id = voimistelijaliike.voimistelija_id"
+#            +"LEFT JOIN Liike ON voimistelijaliike.liike_id = liike.id"
+#            + "GROUP BY voimistelija.id, liike.nimi")
+#        res = db.engine.execute(stmt)
+#        response = []
+#        for row in res:
+#            response.append({"id":row[0], "voimistelija":row[1], "liike":row[2], "teline":row[3]})
+#        return response
 
 
 	
