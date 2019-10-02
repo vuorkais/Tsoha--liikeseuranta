@@ -1,5 +1,11 @@
 from application import db
 from application.models import Base
+from flask_sqlalchemy import SQLAlchemy
+
+liitostaulu_voimistelijaliike = db.Table("liitostaulu_voimistelijaliike", 
+    db.Column("voimistelija_id", db.Integer, db.ForeignKey("voimistelija.id"), primary_key=True),
+    db.Column("liike_id", db.Integer, db.ForeignKey("liike.id"), primary_key=True)
+)
 
 class Voimistelija(Base):
 
