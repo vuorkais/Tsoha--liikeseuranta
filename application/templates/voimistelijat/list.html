@@ -13,9 +13,6 @@
       <form method="POST" action="{{ url_for('voimistelijat_remove', voimistelija_id=voimistelija.id) }}">
         <input type="submit" value="Poista voimistelija"/>
       </form>
-      <form method="POST" action="{{ url_for('voimistelija_liikkeet_add', voimistelija_id=voimistelija.id) }}">
-          <input type="select" value="Lisää uusi liike"/>
-      </form>
       {% endif %}
       </td>
     </tr>
