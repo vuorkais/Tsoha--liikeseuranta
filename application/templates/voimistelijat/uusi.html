@@ -3,24 +3,15 @@
 {% block body %}
 <h2>Lisää voimistelija</h2>
 <div class="form">
-  <form action="{{url_for('voimistelijat_create')}}" method="POST">
+  <form action="{{url_for('voimistelijat_lisaa')}}" method="POST">
     <table class="form-table">
       <tr class="labelrow">
         <td>{{form.nimi.label}}</td>
-        <td>Valitse ryhmä</td>
       </tr>
       <tr class="contentrow">
         </td>
         <td>
           {{form.nimi}}
-        </td>
-        <td>
-          <select name="ryhma_id">
-            <option value="-1">Tyhjä</option>
-            {%for ryhma in ryhmat%}
-            <option value="{{ryhma.id}}">{{ryhma.ryhma}}</option>
-            {%endfor%}
-          </select>
         </td>
       </tr>
     </table>
