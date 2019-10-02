@@ -30,6 +30,9 @@ class User(Base):
     def is_authenticated(self):
         return True
 
+    def roles(self):
+        return ["ADMIN"]
+
     @staticmethod
     def listaa_bhaki():
         stmt = text("SELECT Vastuuvalmentaja.id, Vastuuvalmentaja.name FROM Vastuuvalmentaja"
