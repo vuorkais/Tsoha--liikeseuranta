@@ -36,7 +36,8 @@ def ryhmat_remove(ryhma_id):
 
     r = Ryhma.query.get(ryhma_id)
     if r.vastuuvalmentaja_id != current_user.id:
-        return login_manager.unauthorized()
+        print("EI ole sinun ryhmä!")
+        return redirect(url_for("ryhmat_index"))
     
     db.session().delete(r)
     db.session().commit()
