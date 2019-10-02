@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div style="width: 700px; margin: auto"></div>
+  <table>
+    <tr>
+      <th>Ryhmät</th>
+    </tr>
+    {% for ryhma in ryhmat %}
+    <tr>
+      <td>{{ ryhma.ryhma }}</td>
+       <td>
+
+        <form method="POST" action="{{ url_for('ryhmat_remove', ryhma_id=ryhma.id) }}">
+          <input type="submit" value="Poista ryhmä"/>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

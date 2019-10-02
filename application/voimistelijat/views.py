@@ -14,26 +14,6 @@ def voimistelijat_index():
 def voimistelijat_form():
     return render_template("voimistelijat/uusi.html", form = VoimistelijaForm())
 
-@app.route("/voimistelijat/<voimistelija_id>/", methods=["POST"])
-@login_required
-def voimistelijat_set_ryhmaB(voimistelija_id):
-
-    v = Voimistelija.query.get(voimistelija_id)
-    v.ryhma = "B-haki"
-    db.session().commit()
-  
-    return redirect(url_for("voimistelijat_index"))
-
-@app.route("/voimistelijat/<voimistelija_id>/C", methods=["POST"])
-@login_required
-def voimistelijat_set_ryhmaC(voimistelija_id):
-
-    v = Voimistelija.query.get(voimistelija_id)
-    v.ryhma = "C-haki"
-    db.session().commit()
-  
-    return redirect(url_for("voimistelijat_index"))
-
 @app.route("/voimistelijat/", methods=["POST"])
 @login_required
 def voimistelijat_create():
@@ -42,7 +22,7 @@ def voimistelijat_create():
     if not form.validate():
         return render_template("voimistelijat/uusi.html", form = form)
     
-    v = Voimistelija(form.nimi.data,form.ryhma.data)
+    v = Voimistelija(form.nimi.data)
     v.vastuuvalmentaja_id = current_user.id
     
     db.session().add(v)

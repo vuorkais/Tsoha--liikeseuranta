@@ -3,20 +3,13 @@
 {% block body %}
   <table>
     <tr>
-      <th>Voimistelija</th>
-      <th>Ryhmä</th>
+      <th>Voimistelijat</th>
     </tr>
     {% for voimistelija in voimistelijat %}
     <tr>
       <td>{{ voimistelija.nimi }}</td>
-      <td>{{ voimistelija.ryhma }}</td>
        <td>
-	<form method="POST" action="{{ url_for('voimistelijat_set_ryhmaB', voimistelija_id=voimistelija.id) }}">
-	  <input type="submit" value="Aseta ryhmäksi 'B-haki'"/>
-  </form>
-  <form method="POST" action="{{ url_for('voimistelijat_set_ryhmaC', voimistelija_id=voimistelija.id) }}">
-	  <input type="submit" value="Aseta ryhmäksi 'C-haki'"/>
-  </form>
+
   <form method="POST" action="{{ url_for('voimistelijat_remove', voimistelija_id=voimistelija.id) }}">
       <input type="submit" value="Poista voimistelija"/>
     </form>

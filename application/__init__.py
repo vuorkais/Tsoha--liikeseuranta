@@ -29,6 +29,8 @@ from application.liikkeet import models
 from application.liikkeet import views
 from application.suoritukset import models
 from application.suoritukset import views
+from application.ryhmat import models
+from application.ryhmat import views
 
 # kirjautuminen
 from application.auth.models import User
