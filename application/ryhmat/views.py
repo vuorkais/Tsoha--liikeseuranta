@@ -1,5 +1,5 @@
 from flask import render_template, redirect, request, url_for
-from flask_login import login_required, current_user
+from flask_login import login_required, current_user, login_manager
 
 from application import app, db
 from application.ryhmat.models import Ryhma
@@ -35,6 +35,8 @@ def ryhmat_create():
 def ryhmat_remove(ryhma_id):
 
     r = Ryhma.query.get(ryhma_id)
+    if r.vastuuvalmentaja_id != current_user.id:
+        return login_manager.unauthorized()
     
     db.session().delete(r)
     db.session().commit()
