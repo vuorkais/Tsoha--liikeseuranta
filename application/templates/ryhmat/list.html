@@ -2,6 +2,7 @@
 
 {% block body %}
 <h2>Ryhmät</h2>
+<a href="{{ url_for('ryhmat_form') }}">Lisää ryhmä</a>
 <table>
     {% if not ryhmat %}
     <tr>

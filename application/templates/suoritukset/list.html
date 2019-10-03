@@ -1,12 +1,15 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<h2>Suoritukset</h2>
+<a href="{{ url_for('suoritukset_form') }}">Lisää suoritus</a>
+  <table>
   <table>
     <tr>
-      <th>Tehtyjä</th>
-      <th>Onnistuneita</th>
-      <th>Harjoituskerta</th>
-      <th>Muuta</th>
+      <th><h4>Tehtyjä</h4></th>
+      <th><h4>Onnistuneita</h4></th>
+      <th><h4>Harjoituskerta</h4></th>
+      <th><h4>Muuta</h4></th>
     </tr>
     {% for suoritus in suoritukset %}
     <tr>
