@@ -9,5 +9,5 @@ Tietokantasovelluksen harjoitustyöni on telinevoimisteluun erikoistunut liikese
 [Linkki herokuun](https://tsoha-liikeseuranta.herokuapp.com)
 
 ### Testikäyttäjätunnukset: 
-  käyttäjänimi: `hello` 
-  salasana: `world`
+  käyttäjänimi: `käyttäjä` 
+  salasana: `salasana`
