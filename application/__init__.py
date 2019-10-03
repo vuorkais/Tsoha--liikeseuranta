@@ -83,7 +83,7 @@ from application.ryhmat.models import Ryhma
 # Luodaan lopulta tarvittavat tietokantataulut
 db.create_all()
 
-Luodaan 'ryhmättömät' ryhmä
+#Luodaan 'ryhmättömät' ryhmä
 Ryhma(ryhma='Ryhmättömät', vastuuvalmentaja_id=0)
 tyhja_ryhma = Ryhma(ryhma='Ryhmättömät', vastuuvalmentaja_id=0)
 db.session().add(tyhja_ryhma)
