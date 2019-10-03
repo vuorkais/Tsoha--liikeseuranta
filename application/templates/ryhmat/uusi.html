@@ -1,27 +1,23 @@
 {% extends "layout.html" %}
-  
+
 {% block body %}
-  <form method="POST" action="{{ url_for('ryhmat_create') }}">
-    <table>
-      <tr>
-	<td>
-	  {{ form.ryhma.label }}
-	</td>
-	<td>
-	  {{ form.ryhma }}
-	</td>
-	<td>
-	  <ul>
-	    {% for error in form.ryhma.errors %}
-	    <li>{{ error }}</li>
-	    {% endfor %}
-	  </ul>
-	</td>
+<h2>Lisää ryhmä</h2>
+<div class="form">
+  <form action="{{url_for('ryhmat_create')}}" method="POST">
+    <table class="form-table">
+      <tr class="labelrow">
+        <td>{{form.ryhma.label}}</td>
       </tr>
-      <tr>
-	<td colspan="2">
-	  <input type="submit" value="Lisää ryhmä"/>
-	</td>
+      <tr class="contentrow">
+        </td>
+        <td>
+          {{form.ryhma}}
+        </td>
       </tr>
+    </table>
+    <div>
+      <input type="submit" value="Lisää ryhmä">
+    </div>
   </form>
+</div>
 {% endblock %}

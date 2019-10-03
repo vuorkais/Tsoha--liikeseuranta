@@ -1,10 +1,17 @@
 {% extends "layout.html" %}
 
 {% block body %}
+  <h2>Voimistelijat</h2>
   <table>
+    {% if not voimistelijat %}
     <tr>
-      <th>Voimistelijat</th>
+      <td>
+        <a>
+          Ei lisättyjä voimistelijoita.
+        </a>
+      </td>
     </tr>
+    {% endif %}
     {% for voimistelija in voimistelijat %}
     <tr>
       <td>{{ voimistelija.nimi, voimistelija.ryhma_id, voimistelija.vastuuvalmentaja_id }}</td>
