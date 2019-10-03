@@ -10,7 +10,7 @@ from application.liikkeet.models import Liike
 
 @app.route("/voimistelijat", methods=["GET"])
 def voimistelijat_index():
-    return render_template("voimistelijat/list.html")#, voimistelijat = Voimistelija.query.all())
+    return render_template("voimistelijat/list.html", voimistelijat = Voimistelija.query.all())
 
 @app.route("/voimistelijat/<voimistelija_id>/remove", methods=["POST"])
 @login_required
