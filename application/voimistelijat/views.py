@@ -26,21 +26,21 @@ def voimistelijat_remove(voimistelija_id):
 @app.route("/voimistelijat/lisays/")
 @login_required
 def voimistelijat_form():
+
     return render_template("voimistelijat/uusi.html", form = VoimistelijaForm())
 
-@app.route("/ryhmat/lisataan", methods=["POST"])
+@app.route("/voimistelijat/<ryhma_id>/lisataan", methods=["POST"])
 @login_required
 def voimistelijat_lisaa(ryhma_id):
 
     form = VoimistelijaForm(request.form)
-    
+    ryhma = ryhma_id
     if not form.validate():
-        return render_template("voimistelijat/uusi.html", form = form)
+        return render_template("voimistelijat/uusi.html", form = form, ryhma_id= ryhma)
     
     v = Voimistelija(form.nimi.data)
     v.vastuuvalmentaja_id = current_user.id
-    v.ryhma_id = 0
-    #Ryhma.query.get(ryhma_id)
+    v.ryhma_id = ryhma
     
     db.session().add(v)
     db.session().commit()

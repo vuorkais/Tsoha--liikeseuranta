@@ -3,7 +3,7 @@
 {% block body %}
 <h2>Lisää voimistelija</h2>
 <div class="form">
-  <form action="{{url_for('voimistelijat_lisaa')}}" method="POST">
+  <form action="{{url_for('voimistelijat_lisaa', ryhma_id=ryhma_id)}}" method="POST">
     <table class="form-table">
       <tr class="labelrow">
         <td>{{form.nimi.label}}</td>

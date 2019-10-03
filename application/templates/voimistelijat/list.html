@@ -7,7 +7,7 @@
     </tr>
     {% for voimistelija in voimistelijat %}
     <tr>
-      <td>{{ voimistelija.nimi }}</td>
+      <td>{{ voimistelija.nimi, voimistelija.ryhma_id, voimistelija.vastuuvalmentaja_id }}</td>
        <td>
       {% if voimistelija.vastuuvalmentaja_id == current_user.id %}
       <form method="POST" action="{{ url_for('voimistelijat_remove', voimistelija_id=voimistelija.id) }}">
