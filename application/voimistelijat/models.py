@@ -21,10 +21,7 @@ class Voimistelija(Base):
     def __init__(self, nimi):
         self.nimi = nimi
 
-    @staticmethod
-    def ryhman_poisto(id):
-        stmt = text("UPDATE Voimistelijat SET Ryhma_id = '1' WHERE Ryhma_id = id")
-        res = db.engine.execute(stmt)
+
 
 
 	
