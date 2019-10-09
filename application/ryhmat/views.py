@@ -16,6 +16,12 @@ def ryhmat_index():
 def ryhmat_form():
     return render_template("ryhmat/uusi.html", form = RyhmaForm())
 
+    #    <td>{{ ryhma.ryhma }}</td>
+@app.route("/ryhmat/<ryhma_id>/tiedot")
+def ryhma_tiedot(ryhma_id):
+    ryhma_id = int(ryhma_id)
+    return render_template("voimistelijat/tiedot.html", ryhma_id = ryhma_id, voimistelijat = Voimistelija.query.all())
+
 @app.route("/ryhmat/", methods=["POST"])
 @login_required
 def ryhmat_create():

@@ -15,8 +15,10 @@
     {% endif %}
   {% for ryhma in ryhmat %}
   <tr>
-    <td>{{ ryhma.ryhma }}</td>
-     <td>
+    <li>
+      <a class="nav-link" href="{{ url_for('ryhma_tiedot', ryhma_id= ryhma.id) }}">{{ ryhma.ryhma }}</a>
+    
+     <div>
       {% if ryhma.vastuuvalmentaja_id == current_user.id %}
       <form method="POST" action="{{ url_for('voimistelijat_lisaa', ryhma_id=ryhma.id) }}">
         <input type="submit" value="Lisää uusi voimistelija ryhmään"/>
@@ -25,7 +27,8 @@
         <input type="submit" value="Poista ryhmä"/>
       </form>
       {% endif %}
-    </td>
+    </div>
+  </li>
   </tr>
   {% endfor %}
 </table>

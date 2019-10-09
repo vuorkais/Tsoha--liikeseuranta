@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<h2>Ryhmän tiedot</h2>
+<div class="pane form" action="{{url_for('ryhma_tiedot', ryhma_id= ryhma_id)}}" method="POST">
+  <table>
+        {% if not voimistelijat %}
+        <div>
+          Ei lisättyjä voimistelijoita.
+        </div>
+        {% endif %}
+        <h4>Ryhmän voimistelijat</h4>
+        {% for voimistelija in voimistelijat %}
+        {% if ryhma_id == voimistelija.ryhma_id %}
+        <tr>
+          <li>
+            <a>{{ voimistelija.nimi}}</a>
+          </li>
+        </tr>
+        {% endif %}
+        {% endfor %}
+</table>
+{% endblock %}
+
+{% if not voimistelijat %}
+    <div>
+      Ei lisättyjä voimistelijoita.
+    </div>
+    {% endif %}
+    {% for voimistelija in voimistelijat %}
+    <tr>
+      <td>{{ voimistelija.nimi}}</td>
+       <td>
+      {% if voimistelija.vastuuvalmentaja_id == current_user.id %}
+      <form method="POST" action="{{ url_for('voimistelijat_remove', voimistelija_id=voimistelija.id) }}">
+        <input type="submit" value="Poista voimistelija"/>
+      </form>
+      {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
