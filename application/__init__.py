@@ -74,8 +74,6 @@ from application.auth import models
 from application.auth import views 
 from application.liikkeet import models
 from application.liikkeet import views
-from application.suoritukset import models
-from application.suoritukset import views
 from application.ryhmat import models
 from application.ryhmat import views
 from application.ryhmat.models import Ryhma
