@@ -1,22 +1,12 @@
 {% extends "layout.html" %}
-
+  
 {% block body %}
-<h2>Lisää ryhmä</h2>
-<div class="form">
-  <form action="{{url_for('ryhmat_create')}}" method="POST">
-    <table class="form-table">
-      <tr class="labelrow">
-        <td>{{form.ryhma.label}}</td>
-      </tr>
-      <tr class="contentrow">
-        </td>
-        <td>
-          {{form.ryhma}}
-        </td>
-      </tr>
-    </table>
-    <div>
-      <input type="submit" value="Lisää ryhmä">
+<h2>Lisää uusi ryhmä</h2>
+<div class="pane form">
+  <form class="form-inline" action="{{url_for('ryhmat_create')}}" method="POST">
+    <div class="form-group">
+      {{form.ryhma(class_="form-control", placeholder="Ryhmän Nimi")}}
+      <input type="submit" class="btn btn-primary form-control" value="Lisää">
     </div>
   </form>
 </div>

@@ -3,10 +3,10 @@ from flask_login import login_required, current_user
 
 from application import app, db
 from application.voimistelijat.models import Voimistelija
-from application.voimistelijat.forms import VoimistelijaForm
+from application.voimistelijat.forms import VoimistelijaForm, LisaaLiikeForm
 from application.ryhmat.models import Ryhma
-from application.ryhmat.forms import RyhmaForm
 from application.liikkeet.models import Liike
+from application.ryhmat.forms import RyhmaForm
 
 @app.route("/voimistelijat", methods=["GET"])
 def voimistelijat_index():
@@ -22,12 +22,6 @@ def voimistelijat_remove(voimistelija_id):
     db.session().commit()
   
     return redirect(url_for("voimistelijat_index"))
-
-@app.route("/voimistelijat/lisays/")
-@login_required
-def voimistelijat_form():
-
-    return render_template("voimistelijat/uusi.html", form = VoimistelijaForm())
 
 @app.route("/voimistelijat/<ryhma_id>/lisataan", methods=["POST"])
 @login_required
@@ -45,4 +39,24 @@ def voimistelijat_lisaa(ryhma_id):
     db.session().add(v)
     db.session().commit()
     
+    return redirect(url_for("voimistelijat_index"))
+
+@app.route("/voimistelijat/<voimistelija_id>/lisaaliike", methods=["POST"])
+@login_required
+def lisaa_liike_voimistelijalle(voimistelija_id):
+
+    voimistelija_id = voimistelija_id
+#    v = db.session.query(Voimistelija).get(voimistelija_id)
+#    voimistelija_liikkeet = voimistelija.listaa_liikkeet()
+    form = LisaaLiikeForm()
+    form.liike.choices = Liike.listaa_liikkeet()
+    
+    if not form.validate():
+        return render_template("voimistelijat/uusiliike.html", form = form, voimistelija_id= voimistelija_id)
+#    form.liike.choices = Liike.listaa_liikkeet()
+#    form.liikevaihtoehdot = Voimistelija.listaa_liikkeet()
+#    if not form.validate():
+#    return render_template("voimistelijat/uusiliike.html", form = form, voimistelija_id= voimistelija_id)
+    
+#    l = Liike(form.id.data)
     return redirect(url_for("voimistelijat_index"))

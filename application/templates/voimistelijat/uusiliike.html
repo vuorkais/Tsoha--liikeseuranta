@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Lisää liike voimistelijalle</h2>
+<div class="pane form">
+  <form class="form-inline" action="{{url_for('lisaa_liike_voimistelijalle', voimistelija_id = voimistelija_id)}}" method="POST">
+    <div class="form-group">
+      {{form.liike(class_="form-control", placeholder=form.liike.text)}}
+      <input type="submit" class="btn btn-primary form-control" value="Lisää">
+    </div>
+  </form>
+</div>
+{% endblock %}

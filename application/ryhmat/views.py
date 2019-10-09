@@ -22,7 +22,7 @@ def ryhmat_create():
     if not form.validate():
         return render_template("ryhmat/uusi.html", form = form)
     
-    r = Ryhma(form.ryhma.data)
+    r = Ryhma(form.ryhma.data, vastuuvalmentaja_id = current_user.id)
     r.vastuuvalmentaja_id = current_user.id
     
     db.session().add(r)
