@@ -1,9 +1,11 @@
 from flask import render_template, redirect, request, url_for
 from flask_login import login_required, current_user, login_manager
+from sqlalchemy import update
 
 from application import app, db
 from application.ryhmat.models import Ryhma
 from application.ryhmat.forms import RyhmaForm
+from application.voimistelijat.models import Voimistelija
 
 @app.route("/ryhmat", methods=["GET"])
 def ryhmat_index():
@@ -35,6 +37,8 @@ def ryhmat_create():
 def ryhmat_remove(ryhma_id):
 
     r = Ryhma.query.get(ryhma_id)
+    stmt = update(Voimistelija).where(Voimistelija.ryhma_id==ryhma_id).\
+        values(ryhma_id='-1')
     
     db.session().delete(r)
     db.session().commit()

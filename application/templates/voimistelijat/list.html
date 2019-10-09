@@ -4,13 +4,9 @@
   <h2>Voimistelijat</h2>
   <table>
     {% if not voimistelijat %}
-    <tr>
-      <td>
-        <a>
-          Ei lisättyjä voimistelijoita.
-        </a>
-      </td>
-    </tr>
+    <div>
+      Ei lisättyjä voimistelijoita.
+    </div>
     {% endif %}
     {% for voimistelija in voimistelijat %}
     <tr>
