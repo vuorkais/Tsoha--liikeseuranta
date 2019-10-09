@@ -4,7 +4,7 @@ Tietokantasovelluksen harjoitustyöni on telinevoimisteluun erikoistunut liikese
 
 [Aiheen kuvaus](https://github.com/vuorkais/Tsoha--liikeseuranta/blob/master/documentation/aiheenkuvaus.md)
 
-[Tietokantakaavio kuvana]()
+[Tietokantakaavio kuvana](https://github.com/vuorkais/Tsoha--liikeseuranta/blob/master/documentation/Liikeseurantakaavio.png)
 
 [Linkki herokuun](https://tsoha-liikeseuranta.herokuapp.com)
 
