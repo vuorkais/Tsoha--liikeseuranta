@@ -4,12 +4,6 @@
 <h2>Liikkeet</h2>
 <a href="{{ url_for('liikkeet_form') }}">Lisää liike</a>
   <table>
-        <tr>
-          <th><h4>Liike</h4></th>
-          <th><h4>Teline</h4></th>
-          <th><h4>Vaikeusarvo</h4></th>
-          <th><h4>Kuvaus</h4></th>
-        </tr>
         {% if not liikkeet %}
         <tr>
           <td>
