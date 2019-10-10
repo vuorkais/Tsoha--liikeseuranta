@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 
 from application import app, db
 from application.voimistelijat.models import Voimistelija
-from application.voimistelijat.forms import VoimistelijaForm, LisaaLiikeForm
+from application.voimistelijat.forms import VoimistelijaForm, LisaaLiikeForm, VoimistelijanRyhmaForm
 from application.ryhmat.models import Ryhma
 from application.liikkeet.models import Liike
 from application.ryhmat.forms import RyhmaForm
@@ -59,4 +59,24 @@ def lisaa_liike_voimistelijalle(voimistelija_id):
 #    return render_template("voimistelijat/uusiliike.html", form = form, voimistelija_id= voimistelija_id)
     
 #    l = Liike(form.id.data)
+    return redirect(url_for("voimistelijat_index"))
+
+@app.route("/voimistelijat/<voimistelija_id>/paivitys", methods=["POST"])
+@login_required
+def paivita_ryhma(voimistelija_id):
+
+    voimistelija_id = voimistelija_id
+    form = VoimistelijanRyhmaForm()
+    form.ryhma.choices = Ryhma.listaa_ryhmat()
+
+    if not form.validate():
+        return render_template("voimistelijat/uusiryhma.html", form = form, voimistelija_id= voimistelija_id)
+    
+    #v = Voimistelija.query.get(voimistelija_id)    
+    #form.ryhma.data
+    #Tähän valitaan se ryhmän id, jonka nimi on valittu choices-listasta
+
+    #db.session().update(v)
+    #db.session().commit()
+    
     return redirect(url_for("voimistelijat_index"))

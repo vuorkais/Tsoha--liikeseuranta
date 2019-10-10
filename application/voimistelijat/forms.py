@@ -12,3 +12,6 @@ class LisaaLiikeForm(FlaskForm):
 
     class Meta:
         csrf = False
+
+class VoimistelijanRyhmaForm(FlaskForm):
+    ryhma = SelectField("Ryhmä", choices=())

@@ -4,19 +4,20 @@
 <h2>Ryhmän tiedot</h2>
 <div class="pane form" action="{{url_for('ryhma_tiedot', ryhma_id= ryhma_id)}}" method="POST">
   <table>
+      <h4>Ryhmän voimistelijat</h4>
         {% if not voimistelijat %}
         <div>
           Ei lisättyjä voimistelijoita.
         </div>
         {% endif %}
-        <h4>Ryhmän voimistelijat</h4>
+        
         {% for voimistelija in voimistelijat %}
         {% if ryhma_id == voimistelija.ryhma_id %}
-        <tr>
+        <div>
           <li>
             <a>{{ voimistelija.nimi}}</a>
           </li>
-        </tr>
+        </div>
         {% endif %}
         {% endfor %}
 

@@ -12,4 +12,12 @@ class Ryhma(Base):
         self.ryhma = ryhma
         self.vastuuvalmentaja_id = vastuuvalmentaja_id
 
-    
+    @staticmethod
+    def listaa_ryhmat():
+        stmt = text("SELECT Ryhma.id, Ryhma.ryhma FROM Ryhma")
+        res = db.engine.execute(stmt).fetchall()
+        response = []
+        response.append(("-1", "Tyhjä"))
+        for row in res:
+            response.append((row["id"], row["ryhma"]))
+        return response  
