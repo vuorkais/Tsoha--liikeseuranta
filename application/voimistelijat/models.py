@@ -15,7 +15,7 @@ class Voimistelija(Base):
 
     vastuuvalmentaja_id = db.Column(db.Integer, db.ForeignKey('vastuuvalmentaja.id'), nullable=False)
     ryhma_id = db.Column(db.Integer, db.ForeignKey("ryhma.id"), nullable=False)
-    voimistelijaliike = db.relationship('Liike', secondary= voimistelijaliike, lazy = 'subquery',
+    voimistelijaiike = db.relationship('Liike', secondary= VoimistelijaLiike, lazy = 'subquery',
         backref= db.backref('voimistelijat', lazy= True))
 
     def __init__(self, nimi):

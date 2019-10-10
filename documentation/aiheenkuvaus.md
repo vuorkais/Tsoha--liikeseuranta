@@ -6,7 +6,7 @@
 
 Tietokantasovelluksen harjoitustyöni on telinevoimisteluun erikoistunut liikeseurantasovellus. 
 Telinevoimistelijoilla on useita eri liikkeitä, joita he harjoittelevat (kullakin eri liikkeet keskenään) 
-ja valmentajana on hyödyllistä tehdä jonkinlaista seurantaa siitä, mitä liikkeitä kukin voimistelija harjoittelee.
+ja valmentajana on hyödyllistä tehdä jonkinlaista seurantaa siitä, mitä liikkeitä kukin voimistelija harjoittelee tai mitä liikkeitä tietyssä ryhmässä harjoitellaan.
 
 Tietokannassani voidaan lisätä voimistelijoita ja liikkeitä. 
 Näiden välille tulee vaadittu monesta moneen suhde (koska voimistelijalla voi olla harjoiteltavissa useita liikkeitä 
@@ -28,9 +28,12 @@ Vastuuvalmentaja(käyttäjä)-luokka sisältää pääavaimen(id) ja attribuutti
 #### User storyt:
 * Valmentaja voi kirjautua järjestelmään
 * Valmentaja voi lisätä liikkeitä, joille voi antaa ominaisuuksia, kuten vaikeusarvon
-* Valmentaja voi poistaa liikkeitä, joille voi antaa ominaisuuksia, kuten vaikeusarvon
-* Valmentaja voi lisätä voimistelijoita järjestelmään
-* Valmentaja voi poistaa voimistelijoita järjestelmästä
+* Valmentaja voi lisätä voimistelijoita itse lisäämiinsä ryhmiin
+* Valmentaja voi poistaa itse lisäämiään voimistelijoita järjestelmästä
+* Valmentaja voi lisätä ryhmiä järjestelmään
+* Valmentaja voi poistaa itse lisäämiään ryhmiä järjestelmästä
+* Valmentaja voi tarkastella kaikkia lisättyjä voimistelijoita, vaikka ei olisi itse lisännyt kaikkia niistä
+* Valmentaja voi tarkastella kaikkia lisättyjä ryhmiä, vaikka ei olisi itse lisännyt kaikkia niistä
 * Valmentaja voi muokata voimistelijoiden tietoja järjestelmässä, esimerkiksi vaihtaa ryhmän nimeä
-* Valmentaja voi järjestellä tekemiään listoja esimerkiksi ryhmien perusteella
-* Valmentaja voi seurata voimistelijan edistymistä listaamalla onnistumisprosentin
+* Valmentaja voi tarkastella ryhmien tietoja ja nähdä esimerkiksi kuhunkin ryhmään lisätyt voimistelijat ja heidän suorittamansa liikkeet
+* Valmentaja voi lisätä voimistelijalle, jonka on itse lisännyt järjestelmään, uuden harjoiteltavan liikkeen
