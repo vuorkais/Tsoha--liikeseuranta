@@ -4,11 +4,9 @@
 
 ### Ohjeet Sovelluksen Käyttämiseen
 
-XXX
-
 #### Miten Sovellus Toimii?
 
-XXX
+Kuka vain voi tarkastella järjestelmään listattuja ryhmiä, voimistelijoita ja liikkeitä, mutta niitä lisäämään pääsee vain kirjautunut valmentaja. Kukin valmentaja voi hallinnoida omia ryhmiään ja omia voimistelijoitaan ja lisätä heille harjoiteltavia liikkeitä.
 
 #### Mistä Voi Kirjautua?
 
