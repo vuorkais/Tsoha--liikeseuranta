@@ -19,23 +19,24 @@
         </tr>
         {% endif %}
         {% endfor %}
-</table>
-{% endblock %}
 
-{% if not voimistelijat %}
-    <div>
-      Ei lisättyjä voimistelijoita.
-    </div>
-    {% endif %}
-    {% for voimistelija in voimistelijat %}
-    <tr>
-      <td>{{ voimistelija.nimi}}</td>
-       <td>
-      {% if voimistelija.vastuuvalmentaja_id == current_user.id %}
-      <form method="POST" action="{{ url_for('voimistelijat_remove', voimistelija_id=voimistelija.id) }}">
-        <input type="submit" value="Poista voimistelija"/>
-      </form>
-      {% endif %}
-      </td>
-    </tr>
-    {% endfor %}
+        {% if listaa_ryhman_liikkeet is defined %}
+          <h4> Seuraavat liikkeet on listattu ryhmälle: </h4>
+          <table class="table">
+            <tr>
+              <th>Liike</th>
+              <th>Teline</th>
+              <th>Vaikeus</th>
+            </tr>
+            {% for liike in listaa_ryhman_liikkeet %}
+            <tr>
+              <td>{{ liike.nimi }}</td>
+              <td>{{ liike.teline }}</td>
+              <td>{{ liike.vaikeus }}</td>   
+            </tr>
+            {% endfor %}
+            </table>
+          {% endif %}
+  </table>
+
+{% endblock %}

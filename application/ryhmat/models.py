@@ -1,6 +1,7 @@
 from application import db
 from application.models import Base
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.sql import text
 
 class Ryhma(Base):
 
@@ -10,3 +11,5 @@ class Ryhma(Base):
     def __init__(self, ryhma, vastuuvalmentaja_id):
         self.ryhma = ryhma
         self.vastuuvalmentaja_id = vastuuvalmentaja_id
+
+    
