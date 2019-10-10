@@ -25,15 +25,17 @@
 3. Sovelluksen käyttöä varten tulee luoda käyttäjätili herokuun esimerkiksi www.heroku.com ja seurata sieltä ohjeita sovelluksen ja tarvittavien työkalujen asentamiseen tietokoneelle.
 
 4. Luo herokuun uusi sovelluspaikka (esimerkiksi herokun nettisivujen ohjeita seuraten), jonne tuot sovelluksen. Voit myös tehdä vaiheen komentoriviltä seuraavin komennoin: 
-*`$ git remote add heroku osoite` 
-*`$ git add .`
-*`$ git commit -m "Sovelluksen siirto herokuun"`
-*`$ git push heroku master`
+
+* `$ git remote add heroku osoite` 
+* `$ git add .`
+* `$ git commit -m "Sovelluksen siirto herokuun"`
+* `$ git push heroku master`
 
 5. Jos psycopg2 ei ole vielä asennettuna, asenna se esimerkiksi komennolla: `pip install psycopg2`.
 
 6. Määritellään Herokuun ympäristömuuttuja ja luodaan tietokanta:
-*`heroku config:set HEROKU=1`
-*`heroku addons:add heroku-postgresql:hobby-dev`
+
+* `heroku config:set HEROKU=1`
+* `heroku addons:add heroku-postgresql:hobby-dev`
 
 Nyt sovelluksen pitäisi olla toiminnassa myös Herokussa
