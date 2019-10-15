@@ -4,7 +4,7 @@ from sqlalchemy import update
 
 from application import app, db
 from application.ryhmat.models import Ryhma
-from application.ryhmat.forms import RyhmaForm
+from application.ryhmat.forms import RyhmaForm, RyhmanimiForm
 from application.voimistelijat.models import Voimistelija
 from application.liikkeet.models import Liike
 
@@ -17,7 +17,7 @@ def ryhmat_index():
 def ryhmat_form():
     return render_template("ryhmat/uusi.html", form = RyhmaForm())
 
-    #    <td>{{ ryhma.ryhma }}</td>
+
 @app.route("/ryhmat/<ryhma_id>/tiedot")
 def ryhma_tiedot(ryhma_id):
     ryhma_id = int(ryhma_id)
@@ -48,6 +48,26 @@ def ryhmat_remove(ryhma_id):
         values(ryhma_id='-1')
     
     db.session().delete(r)
+    db.session().commit()
+  
+    return redirect(url_for("ryhmat_index"))
+
+@app.route("/ryhmat/<ryhma_id>/uusinimi/")
+@login_required
+def ryhmat_nimiform(ryhma_id):
+    return render_template("ryhmat/uusinimi.html", form = RyhmanimiForm(), ryhma_id=ryhma_id)
+
+@app.route("/ryhmat/<ryhma_id>/nimimuutos", methods=["POST"])
+@login_required
+def ryhmat_update(ryhma_id):
+    form = RyhmanimiForm(request.form)
+
+    if not form.validate():
+        return render_template("ryhmat/uusinimi.html", form = form, ryhma_id=ryhma_id)
+
+    r = Ryhma.query.get(ryhma_id)
+    r.ryhma = form.ryhma.data
+    
     db.session().commit()
   
     return redirect(url_for("ryhmat_index"))

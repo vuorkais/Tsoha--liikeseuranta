@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<h2>Lisää uusi ryhmä</h2>
+<div class="pane form">
+  <form class="form-inline" action="{{url_for('ryhmat_update', ryhma_id=ryhma_id)}}" method="POST">
+    <div class="form-group">
+      {{form.ryhma(class_="form-control", placeholder="Ryhmän Uusi Nimi")}}
+      <input type="submit" class="btn btn-primary form-control" value="Vaihda">
+    </div>
+  </form>
+</div>
+{% endblock %}

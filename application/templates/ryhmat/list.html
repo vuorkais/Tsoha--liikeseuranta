@@ -26,6 +26,9 @@
       <form method="POST" action="{{ url_for('ryhmat_remove', ryhma_id=ryhma.id) }}">
         <input type="submit" value="Poista ryhmä"/>
       </form>
+      <form method="POST" action="{{ url_for('ryhmat_update', ryhma_id=ryhma.id) }}">
+          <input type="submit" value="Vaihda ryhmän nimeä"/>
+      </form>
       {% endif %}
     </div>
   </li>
