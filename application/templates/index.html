@@ -5,33 +5,35 @@
 <h2>Tervetuloa liikeseuranta-sovellukseen</h2>
 <p>
 </p>
-{% if telineena_puomi is defined %}
-<p>
-  Seuraavat listatut liikkeet ovat puomiliikkeitä:
-</p>
-
-<ul>
-  {% for liike in telineena_puomi %}
-  <li>
-    {{liike.id}} {{liike.nimi}} {{liike.teline}}
-  </li>
+{% if listaa_valmentajia_ryhma is defined %}
+<h4> Valmentajien lisäämät ryhmät: </h4>
+<table class="table">
+    <tr>
+        <th>Nimi</th>
+        <th>Ryhmien määrä</th>
+      </tr>
+  {% for valmentaja in listaa_valmentajia_ryhma %}
+    <tr>
+       <td>{{ valmentaja.name }}</td> 
+       <td>{{ valmentaja.ryhmat }}</td>  
+     </tr>
   {% endfor %}
-</ul>
-
+</table>
 {% endif %}
-{% if bhaki_valkku is defined %}
-<p>
-  Seuraavilla valmentajilla on voimistelijoita B-haki ryhmässä:
-</p>
-
-<ul>
-  {% for user in bhaki_valkku %}
-  <li>
-    {{user.id}} {{user.name}}
-  </li>
+{% if listaa_valmentajia_voimistelija is defined %}
+<h4> Valmentajien lisäämät voimistelijat: </h4>
+<table class="table">
+    <tr>
+        <th>Nimi</th>
+        <th>Voimistelijoides määrä</th>
+      </tr>
+  {% for valmentaja in listaa_valmentajia_voimistelija %}
+    <tr>
+       <td>{{ valmentaja.name }}</td> 
+       <td>{{ valmentaja.voimistelijat }}</td>  
+     </tr>
   {% endfor %}
-</ul>
-
+</table>
 {% endif %}
 
 {% endblock %}

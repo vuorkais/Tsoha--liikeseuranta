@@ -17,19 +17,6 @@ class Liike(Base):
         self.kuvaus = kuvaus
 
     @staticmethod
-    def etsi_puomiliikkeet():
-        stmt = text("SELECT Liike.id, Liike.nimi, Liike.teline FROM Liike"
-                    " WHERE (Liike.teline = :pu)"
-                    " GROUP BY Liike.id").params(pu='Puomi')
-        res = db.engine.execute(stmt)
-  
-        response = []
-        for row in res:
-            response.append({"id":row[0], "nimi":row[1], "teline":row[2]})
-
-        return response
-
-    @staticmethod
     def listaa_liikkeet():
         stmt = text("SELECT Liike.id, Liike.nimi, Liike.teline  FROM Liike")
         res = db.engine.execute(stmt).fetchall()
@@ -40,13 +27,13 @@ class Liike(Base):
         return response
     
     @staticmethod
-    def listaa_ryhman_liikkeet(id):
-        stmt = text("SELECT Liike.nimi AS 'Liike', Liike.teline AS 'Teline', Liike.vaikeusarvo AS 'Vaikeus' FROM Liike"
-                    "INNER JOIN VoimistelijaLiike ON VoimistelijaLiike.liike_id = Liike.id"
-                    "INNER JOIN Voimistelija ON Voimistelija.id= VoimistelijaLiike.voimistelija_id"
-                    "INNER JOIN Ryhma ON Ryhma.id= Voimistelija.ryhma_id"
-                    "WHERE Ryhma.id= 'id'"
-                    "GROUP BY Liike.nimi")
+    def listaa_ryhman_liikkeet(ryhma_id):
+        stmt = text("SELECT Liike.nimi AS Liike, Liike.teline AS Teline, Liike.vaikeusarvo AS Vaikeus FROM Liike"
+                    " INNER JOIN VoimistelijaLiike ON VoimistelijaLiike.liike_id = Liike.id"
+                    " INNER JOIN Voimistelija ON Voimistelija.id= VoimistelijaLiike.voimistelija_id"
+                    " INNER JOIN Ryhma ON Ryhma.id= Voimistelija.ryhma_id"
+                    " WHERE Ryhma.id= :ryhma_id"
+                    " GROUP BY Liike.nimi").params(ryhma_id=1)
 
         res = db.engine.execute(stmt)
         response = []

@@ -2,6 +2,7 @@ from application import db
 from application.models import Base
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import text
+from  flask_login import current_user
 
 #liitostaulu
 VoimistelijaLiike = db.Table("voimistelijaliike", 
@@ -15,12 +16,11 @@ class Voimistelija(Base):
 
     vastuuvalmentaja_id = db.Column(db.Integer, db.ForeignKey('vastuuvalmentaja.id'), nullable=False)
     ryhma_id = db.Column(db.Integer, db.ForeignKey("ryhma.id"), nullable=False)
-    voimistelijaiike = db.relationship('Liike', secondary= VoimistelijaLiike, lazy = 'subquery',
+    voimistelijaliike = db.relationship('Liike', secondary= VoimistelijaLiike, lazy = 'subquery',
         backref= db.backref('voimistelijat', lazy= True))
 
     def __init__(self, nimi):
         self.nimi = nimi
-
 
 
 

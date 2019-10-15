@@ -1,9 +1,9 @@
 from flask import render_template
 from application import app
-from application.liikkeet.models import Liike
+from application.voimistelijat.models import Voimistelija
 from application.auth.models import User
+from flask_login import current_user
 
 @app.route('/')
 def index():
-    return render_template("index.html")
-    #telineena_puomi=Liike.etsi_puomiliikkeet(), bhaki_valkku=User.listaa_bhaki()
+    return render_template("index.html", listaa_valmentajia_ryhma=User.listaa_valmentajia_r(), listaa_valmentajia_voimistelija=User.listaa_valmentajia_v())

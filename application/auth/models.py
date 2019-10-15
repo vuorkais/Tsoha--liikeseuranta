@@ -34,16 +34,27 @@ class User(Base):
         return ["ADMIN"]
 
     @staticmethod
-    def listaa_bhaki():
-        stmt = text("SELECT Vastuuvalmentaja.id, Vastuuvalmentaja.name FROM Vastuuvalmentaja"
-                    " LEFT JOIN Voimistelija ON Voimistelija.vastuuvalmentaja_id = Vastuuvalmentaja.id"
-                    " WHERE (Voimistelija.ryhma = :b)"
-                    " GROUP BY Vastuuvalmentaja.id").params(b='B-haki')
-                    #" HAVING COUNT(Voimistelija.id) = 0")
+    def listaa_valmentajia_r():
+        stmt = text("SELECT Vastuuvalmentaja.id, Vastuuvalmentaja.name, COUNT(Ryhma.id) AS ryhmat FROM Vastuuvalmentaja"
+                    " LEFT JOIN Ryhma ON Ryhma.vastuuvalmentaja_id = Vastuuvalmentaja.id"
+                    " GROUP BY Vastuuvalmentaja.id")
         res = db.engine.execute(stmt)
 
         response = []
         for row in res:
-            response.append({"id":row[0], "name":row[1]})
+            response.append({"id":row[0], "name":row[1], "ryhmat":row[2]})
+
+        return response
+
+    @staticmethod
+    def listaa_valmentajia_v():
+        stmt = text("SELECT Vastuuvalmentaja.id, Vastuuvalmentaja.name, COUNT(Voimistelija.id) AS voimistelijat FROM Vastuuvalmentaja"
+                    " LEFT JOIN Voimistelija ON Voimistelija.vastuuvalmentaja_id = Vastuuvalmentaja.id"
+                    " GROUP BY Vastuuvalmentaja.id")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"id":row[0], "name":row[1], "voimistelijat":row[2]})
 
         return response

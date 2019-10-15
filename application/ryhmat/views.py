@@ -6,6 +6,7 @@ from application import app, db
 from application.ryhmat.models import Ryhma
 from application.ryhmat.forms import RyhmaForm
 from application.voimistelijat.models import Voimistelija
+from application.liikkeet.models import Liike
 
 @app.route("/ryhmat", methods=["GET"])
 def ryhmat_index():
@@ -20,7 +21,7 @@ def ryhmat_form():
 @app.route("/ryhmat/<ryhma_id>/tiedot")
 def ryhma_tiedot(ryhma_id):
     ryhma_id = int(ryhma_id)
-    return render_template("voimistelijat/tiedot.html", ryhma_id = ryhma_id, voimistelijat = Voimistelija.query.all())
+    return render_template("voimistelijat/tiedot.html", ryhma_id = ryhma_id, voimistelijat = Voimistelija.query.all(), listaa_ryhman_liikkeet=Liike.listaa_ryhman_liikkeet(ryhma_id))
 
 @app.route("/ryhmat/", methods=["POST"])
 @login_required
