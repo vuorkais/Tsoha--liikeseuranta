@@ -44,10 +44,9 @@ def ryhmat_create():
 def ryhmat_remove(ryhma_id):
 
     r = Ryhma.query.get(ryhma_id)
-    ryhma_id = int(ryhma_id)
-    update(Voimistelija).where(Voimistelija.ryhma_id==1).\
-        values(ryhma_id=-1)
 
+    update(Voimistelija).where(Voimistelija.ryhma_id==ryhma_id).\
+        values(ryhma_id=-1)
 
     db.session().delete(r)
     db.session().commit()
