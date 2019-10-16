@@ -7,6 +7,7 @@ class Ryhma(Base):
 
     ryhma = db.Column(db.String(144), nullable=False)
     vastuuvalmentaja_id = db.Column(db.Integer, db.ForeignKey('vastuuvalmentaja.id'), nullable=False)
+    voimistelijat = db.relationship("Voimistelija", cascade="all, delete-orphan")
 
     def __init__(self, ryhma, vastuuvalmentaja_id):
         self.ryhma = ryhma

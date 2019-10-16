@@ -23,5 +23,4 @@ class Voimistelija(Base):
         self.nimi = nimi
 
 
-
 	

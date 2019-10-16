@@ -1,6 +1,6 @@
 from flask import render_template, redirect, request, url_for
 from flask_login import login_required, current_user, login_manager
-from sqlalchemy import update
+from sqlalchemy import update, text
 
 from application import app, db
 from application.ryhmat.models import Ryhma
@@ -39,19 +39,20 @@ def ryhmat_create():
     
     return redirect(url_for("ryhmat_index"))
 
-@app.route("/ryhmat/<ryhma_id>/remove", methods=["POST"])
+@app.route("/ryhmat/<ryhma_id>/remove", methods=["GET","POST"])
 @login_required
 def ryhmat_remove(ryhma_id):
 
     r = Ryhma.query.get(ryhma_id)
-
     
-    update(Voimistelija).where(Voimistelija.ryhma_id==ryhma_id).values(ryhma_id='-1')
+    if r.vastuuvalmentaja_id != current_user.id:
+        return login_manager.unauthorized()
 
-    db.session().delete(r)
-    db.session().commit()
-  
-    return redirect(url_for("ryhmat_index"))
+    if request.method == "POST":
+        db.session().delete(r)
+        db.session().commit()
+        return redirect(url_for("ryhmat_index"))
+    return render_template("ryhmat/poistovahvistus.html")
 
 @app.route("/ryhmat/<ryhma_id>/nimimuutos", methods=["POST"])
 @login_required
