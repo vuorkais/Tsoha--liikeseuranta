@@ -21,7 +21,7 @@ def ryhmat_form():
 @app.route("/ryhmat/<ryhma_id>/tiedot")
 def ryhma_tiedot(ryhma_id):
     ryhma_id = int(ryhma_id)
-    return render_template("voimistelijat/tiedot.html", ryhma_id = ryhma_id, voimistelijat = Voimistelija.query.all(), listaa_ryhman_liikkeet=Liike.listaa_ryhman_liikkeet(ryhma_id))
+    return render_template("voimistelijat/tiedot.html", ryhma_id = ryhma_id, voimistelijat = Voimistelija.query.all())
 
 @app.route("/ryhmat/", methods=["POST"])
 @login_required
@@ -44,9 +44,11 @@ def ryhmat_create():
 def ryhmat_remove(ryhma_id):
 
     r = Ryhma.query.get(ryhma_id)
-#    update(Voimistelija).where(Voimistelija.ryhma_id==ryhma_id).\
-#        values(ryhma_id='-1')
-    
+    ryhma_id = int(ryhma_id)
+    update(Voimistelija).where(Voimistelija.ryhma_id==1).\
+        values(ryhma_id=-1)
+
+
     db.session().delete(r)
     db.session().commit()
   
