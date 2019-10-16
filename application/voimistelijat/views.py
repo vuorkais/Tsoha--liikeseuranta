@@ -1,7 +1,7 @@
 from flask import render_template, redirect, request, url_for
 from flask_login import login_required, current_user
 
-from application import app, db
+from application import app, db, login_manager
 from application.voimistelijat.models import Voimistelija
 from application.voimistelijat.forms import VoimistelijaForm, LisaaLiikeForm, VoimistelijanRyhmaForm
 from application.ryhmat.models import Ryhma
@@ -61,23 +61,31 @@ def lisaa_liike_voimistelijalle(voimistelija_id):
 #    l = Liike(form.id.data)
     return redirect(url_for("voimistelijat_index"))
 
-@app.route("/voimistelijat/<voimistelija_id>/paivitys", methods=["POST"])
+
+
+@app.route("/voimistelijat/<voimistelija_id>/paivitys", methods=["GET","POST"])
 @login_required
 def paivita_ryhma(voimistelija_id):
-
-    form = VoimistelijanRyhmaForm()
-    form.ryhma.choices = Ryhma.listaa_ryhmat()
-    return render_template("voimistelijat/uusiryhma.html", form = form, voimistelija_id= voimistelija_id)
-
-@app.route("/voimistelijat/<voimistelija_id>/ryhmapaivitys", methods=["POST"])
-@login_required
-def paivitetaan_ryhma(voimistelija_id):    
-    
-    form=VoimistelijanRyhmaForm()
     v = Voimistelija.query.get(voimistelija_id)
-    print(form.ryhma.data) 
-    v.ryhma_id = 1
-    #Tähän valitaan se ryhmän id, jonka nimi on valittu choices-listasta
+    form = VoimistelijanRyhmaForm(formdata=request.form, obj=v)
+    form.ryhma.choices = Ryhma.listaa_ryhmat()
+
+    if v.vastuuvalmentaja_id != current_user.id:
+        return login_manager.unauthorized()
+
+    if request.method == "POST":
+        save_changes(v, form)
+        return redirect(url_for("voimistelijat_index"))
+
+    return render_template("voimistelijat/uusiryhma.html", voimistelija_id=voimistelija_id, form=form)
+
+def save_changes(voimistelija, form, new = False):
+
+    ryhma = [Ryhma.query.get(id) for id in form.ryhma.data]
+    stringryhma = str(ryhma)
+    intryhma= int(''.join(filter(str.isdigit, stringryhma)))
+    print(intryhma)
+    voimistelija.ryhma_id = intryhma
+   
     db.session().commit()
-    
     return redirect(url_for("voimistelijat_index"))
