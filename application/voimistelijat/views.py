@@ -2,7 +2,7 @@ from flask import render_template, redirect, request, url_for
 from flask_login import login_required, current_user
 
 from application import app, db, login_manager
-from application.voimistelijat.models import Voimistelija
+from application.voimistelijat.models import Voimistelija, VoimistelijaLiike
 from application.voimistelijat.forms import VoimistelijaForm, LisaaLiikeForm, VoimistelijanRyhmaForm
 from application.ryhmat.models import Ryhma
 from application.liikkeet.models import Liike
@@ -41,24 +41,49 @@ def voimistelijat_lisaa(ryhma_id):
     
     return redirect(url_for("voimistelijat_index"))
 
-@app.route("/voimistelijat/<voimistelija_id>/lisaaliike", methods=["POST"])
+@app.route("/voimistelijat/<voimistelija_id>/lisaaliike", methods=["GET","POST"])
 @login_required
 def lisaa_liike_voimistelijalle(voimistelija_id):
 
-    voimistelija_id = voimistelija_id
-#    v = db.session.query(Voimistelija).get(voimistelija_id)
+    v = Voimistelija.query.get(voimistelija_id)
 #    voimistelija_liikkeet = voimistelija.listaa_liikkeet()
     form = LisaaLiikeForm()
     form.liike.choices = Liike.listaa_liikkeet()
     
-    if not form.validate():
-        return render_template("voimistelijat/uusiliike.html", form = form, voimistelija_id= voimistelija_id)
+    if v.vastuuvalmentaja_id != current_user.id:
+        return login_manager.unauthorized()
+
+    if request.method == "POST":
+        lisays(v, form)
+        return redirect(url_for("voimistelijat_index"))
+
+    return render_template("voimistelijat/uusiliike.html", voimistelija_id=voimistelija_id, form=form)
+
+    #if not form.validate():
+    #    return render_template("voimistelijat/uusiliike.html", form = form, voimistelija_id= voimistelija_id)
 #    form.liike.choices = Liike.listaa_liikkeet()
 #    form.liikevaihtoehdot = Voimistelija.listaa_liikkeet()
 #    if not form.validate():
 #    return render_template("voimistelijat/uusiliike.html", form = form, voimistelija_id= voimistelija_id)
     
 #    l = Liike(form.id.data)
+    #return redirect(url_for("voimistelijat_index"))
+
+def lisays(voimistelija, form):
+
+    liike = [Liike.query.get(id) for id in form.liike.data]
+    stringliike = str(liike)
+    intliike= int(''.join(filter(str.isdigit, stringliike)))
+    intvoimistelija = voimistelija.id
+    #print(intliike)
+    
+    #vl = Voimistelija.voimistelijaliike
+   
+    #db.session().commit()
+    statement = VoimistelijaLiike.insert().values(voimistelija_id=intvoimistelija, liike_id=intliike)
+    db.session().execute(statement)
+    db.session().commit()
+
     return redirect(url_for("voimistelijat_index"))
 
 
@@ -84,7 +109,7 @@ def save_changes(voimistelija, form, new = False):
     ryhma = [Ryhma.query.get(id) for id in form.ryhma.data]
     stringryhma = str(ryhma)
     intryhma= int(''.join(filter(str.isdigit, stringryhma)))
-    print(intryhma)
+    #print(intryhma)
     voimistelija.ryhma_id = intryhma
    
     db.session().commit()
@@ -93,4 +118,4 @@ def save_changes(voimistelija, form, new = False):
 @app.route("/voimistelijat/<voimistelija_id>/liikkeet", methods=["GET"])
 def voimistelijat_liikelista(voimistelija_id):
     #liikelistaus = Liike.listaa_voimistelijan_liikkeet(voimistelija_id)
-    return render_template("voimistelijat/liikkeet.html", voimistelija_id= voimistelija_id)
+    return render_template("voimistelijat/liikkeet.html", voimistelija_id= voimistelija_id, listaa_voimistelijan_liikkeet= Liike.listaa_voimistelijan_liikkeet(voimistelija_id))
