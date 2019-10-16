@@ -89,3 +89,8 @@ def save_changes(voimistelija, form, new = False):
    
     db.session().commit()
     return redirect(url_for("voimistelijat_index"))
+
+@app.route("/voimistelijat/<voimistelija_id>/liikkeet", methods=["GET"])
+def voimistelijat_liikelista(voimistelija_id):
+    #liikelistaus = Liike.listaa_voimistelijan_liikkeet(voimistelija_id)
+    return render_template("voimistelijat/liikkeet.html", voimistelija_id= voimistelija_id)

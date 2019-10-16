@@ -15,7 +15,7 @@
     {% for voimistelija in voimistelijat %}
     <tr>
       <li>
-      <a>{{ voimistelija.nimi}}</a>
+      <a class="nav-link" href="{{ url_for('voimistelijat_liikelista', voimistelija_id= voimistelija.id) }}">{{ voimistelija.nimi }}</a>
       <div>
       {% if voimistelija.vastuuvalmentaja_id == current_user.id %}
       <form method="POST" action="{{ url_for('voimistelijat_remove', voimistelija_id=voimistelija.id) }}">

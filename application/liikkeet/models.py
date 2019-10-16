@@ -25,6 +25,19 @@ class Liike(Base):
         for row in res:
             response.append((row["id"], row["nimi"]))
         return response
+
+    @staticmethod
+    def listaa_voimistelijan_liikkeet(id):
+        stmt = text("SELECT Liike.id, Liike.nimi, Liike.teline  FROM Liike"
+                " INNER JOIN VoimistelijaLiike ON VoimistelijaLiike.liike_id = Liike.id"
+                " INNER JOIN Voimistelija ON Voimistelija.id= VoimistelijaLiike.voimistelija_id"
+                " WHERE Voimistelija.id= :id"
+                " GROUP BY Liike.nimi, Liike.teline").params(id=id)
+        res = db.engine.execute(stmt).fetchall()
+        response = []
+        for row in res:
+            response.append((row["id"], row["nimi"], row["teline"]))
+        return response
     
 #    @staticmethod
 #    def listaa_ryhman_liikkeet(ryhma_id):

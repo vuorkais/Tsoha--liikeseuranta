@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<h2>Voimistelijan liikkeet</h2>
+<div class="pane form" action="{{url_for('voimistelijat_liikelista', voimistelija_id=voimistelija_id)}}">
+  <table>
+
+        {% if listaa_voimistelijan_liikkeet is defined %}
+          <h4> Seuraavat liikkeet on lisätty voimistelijalle: </h4>
+          <table class="table">
+            <tr>
+              <th>Liike</th>
+              <th>Teline</th>
+              <th>Vaikeus</th>
+            </tr>
+            {% for liike in listaa_voimistelijan_liikkeet %}
+            <tr>
+              <td>{{ liike.nimi }}</td>
+              <td>{{ liike.teline }}</td>
+              <td>{{ liike.vaikeus }}</td>   
+            </tr>
+            {% endfor %}
+            </table>
+          {% endif %}
+  </table>
+
+{% endblock %}
