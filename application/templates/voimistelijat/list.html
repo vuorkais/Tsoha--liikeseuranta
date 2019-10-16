@@ -3,16 +3,20 @@
 {% block body %}
   <h2>Voimistelijat</h2>
   <table>
-      
-    {% if not voimistelijat %}
-    <div>
-      Ei lisättyjä voimistelijoita.
-    </div>
-    {% endif %}
+      {% if not voimistelijat %}
+      <tr>
+        <td>
+          <a>
+            Ei lisättyjä voimistelijoita.
+          </a>
+        </td>
+      </tr>
+      {% endif %}
     {% for voimistelija in voimistelijat %}
     <tr>
-      <td>{{ voimistelija.nimi}}</td>
-      <td>
+      <li>
+      <a>{{ voimistelija.nimi}}</a>
+      <div>
       {% if voimistelija.vastuuvalmentaja_id == current_user.id %}
       <form method="POST" action="{{ url_for('voimistelijat_remove', voimistelija_id=voimistelija.id) }}">
         <input type="submit" value="Poista voimistelija"/>
@@ -28,7 +32,8 @@
         <input type="submit" value="Muuta voimistelijan ryhmää"/>
       </form>
       {% endif %}
-      </td>
+      </div>
+    </li>
     </tr>
     {% endfor %}
   </table>

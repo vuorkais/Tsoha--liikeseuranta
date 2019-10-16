@@ -44,18 +44,13 @@ def ryhmat_create():
 def ryhmat_remove(ryhma_id):
 
     r = Ryhma.query.get(ryhma_id)
-    update(Voimistelija).where(Voimistelija.ryhma_id==ryhma_id).\
-        values(ryhma_id='-1')
+#    update(Voimistelija).where(Voimistelija.ryhma_id==ryhma_id).\
+#        values(ryhma_id='-1')
     
     db.session().delete(r)
     db.session().commit()
   
     return redirect(url_for("ryhmat_index"))
-
-@app.route("/ryhmat/<ryhma_id>/uusinimi/")
-@login_required
-def ryhmat_nimiform(ryhma_id):
-    return render_template("ryhmat/uusinimi.html", form = RyhmanimiForm(), ryhma_id=ryhma_id)
 
 @app.route("/ryhmat/<ryhma_id>/nimimuutos", methods=["POST"])
 @login_required

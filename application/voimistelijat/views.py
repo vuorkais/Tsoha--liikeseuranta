@@ -65,18 +65,19 @@ def lisaa_liike_voimistelijalle(voimistelija_id):
 @login_required
 def paivita_ryhma(voimistelija_id):
 
-    voimistelija_id = voimistelija_id
     form = VoimistelijanRyhmaForm()
     form.ryhma.choices = Ryhma.listaa_ryhmat()
+    return render_template("voimistelijat/uusiryhma.html", form = form, voimistelija_id= voimistelija_id)
 
-    if not form.validate():
-        return render_template("voimistelijat/uusiryhma.html", form = form, voimistelija_id= voimistelija_id)
+@app.route("/voimistelijat/<voimistelija_id>/ryhmapaivitys", methods=["POST"])
+@login_required
+def paivitetaan_ryhma(voimistelija_id):    
     
-    #v = Voimistelija.query.get(voimistelija_id)    
-    #form.ryhma.data
+    form=VoimistelijanRyhmaForm()
+    v = Voimistelija.query.get(voimistelija_id)
+    print(form.ryhma.data) 
+    v.ryhma_id = 1
     #Tähän valitaan se ryhmän id, jonka nimi on valittu choices-listasta
-
-    #db.session().update(v)
-    #db.session().commit()
+    db.session().commit()
     
     return redirect(url_for("voimistelijat_index"))
