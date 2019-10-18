@@ -38,3 +38,5 @@ Vastuuvalmentaja(käyttäjä)-luokka sisältää pääavaimen(id) ja attribuutte
 * Valmentaja voi tarkastella ryhmien tietoja ja nähdä esimerkiksi kuhunkin ryhmään lisätyt voimistelijat
 * Valmentaja voi nähdä listan kunkin voimistelijan harjoittelemista liikkeistä
 * Valmentaja voi lisätä voimistelijalle, jonka on itse lisännyt järjestelmään, uuden harjoiteltavan liikkeen
+* Kaikki käyttäjän näkevät valmentajien ryhmien määrän etusivulta
+* Kaikki käyttäjät näkevät valmentajan voimistelijoiden määrän etusivulta
