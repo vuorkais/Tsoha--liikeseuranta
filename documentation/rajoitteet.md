@@ -4,8 +4,7 @@
 
 ### Työn Puuttuvat Ominaisuudet Ja Ongelmakohdat
 
-* Voimistelijalle liikkeen lisäys ei vielä toimi.
-* Voimistelijan ryhmää ei vielä näe listauksessa
+* Voimistelijan ryhmää ei vielä näe voimistelija-listauksessa (Ryhmälistasta saa ryhmän tiedot, josta näkee kunkin ryhmän voimistelijat)
 * Ryhmän liikkeitä ei vielä saa listattua ryhmän sivulle
 * Voimistelijan nimen muuttaminen ei ole vielä mahdollista
 * Käyttäjän tietojen hallinta ja muokkaus ei ole toistaiseksi mahdollista
