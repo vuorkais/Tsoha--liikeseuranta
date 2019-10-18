@@ -32,7 +32,7 @@ class Liike(Base):
                 " INNER JOIN VoimistelijaLiike ON VoimistelijaLiike.liike_id = Liike.id"
                 " INNER JOIN Voimistelija ON Voimistelija.id= VoimistelijaLiike.voimistelija_id"
                 " WHERE Voimistelija.id= :id"
-                " GROUP BY Liike.nimi").params(id=id)
+                " GROUP BY Liike.id, Liike.nimi").params(id=id)
         res = db.engine.execute(stmt)
         response = []
         for row in res:
