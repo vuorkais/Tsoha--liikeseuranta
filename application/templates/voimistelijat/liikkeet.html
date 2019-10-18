@@ -11,17 +11,15 @@
             <tr>
               <th>Liike</th>
               <th>Teline</th>
-              <th>Vaikeus</th>
             </tr>
-            {% for liike in listaa_voimistelijan_liikkeet %}
+          {% for liike in listaa_voimistelijan_liikkeet %}
             <tr>
               <td>{{ liike.nimi }}</td>
-              <td>{{ liike.teline }}</td>
-              <td>{{ liike.vaikeus }}</td>   
+              <td>{{ liike.teline }}</td> 
             </tr>
-            {% endfor %}
-            </table>
-          {% endif %}
+          {% endfor %}
+        </table>
+        {% endif %}
   </table>
 
 {% endblock %}

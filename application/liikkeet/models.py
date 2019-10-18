@@ -31,12 +31,12 @@ class Liike(Base):
         stmt = text("SELECT Liike.id, Liike.nimi, Liike.teline  FROM Liike"
                 " INNER JOIN VoimistelijaLiike ON VoimistelijaLiike.liike_id = Liike.id"
                 " INNER JOIN Voimistelija ON Voimistelija.id= VoimistelijaLiike.voimistelija_id"
-                " WHERE Voimistelija.id= '2'"
-                " GROUP BY Liike.nimi, Liike.teline").params(id=id)
-        res = db.engine.execute(stmt).fetchall()
+                " WHERE Voimistelija.id= :id"
+                " GROUP BY Liike.nimi").params(id=id)
+        res = db.engine.execute(stmt)
         response = []
         for row in res:
-            response.append((row["id"], row["nimi"], row["teline"]))
+            response.append({"id":row[0], "nimi":row[1], "teline":row[2]})
         return response
     
 #    @staticmethod
