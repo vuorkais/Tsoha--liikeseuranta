@@ -6,11 +6,11 @@
 
 Tietokantasovelluksen harjoitustyöni on telinevoimisteluun erikoistunut liikeseurantasovellus. 
 Telinevoimistelijoilla on useita eri liikkeitä, joita he harjoittelevat (kullakin eri liikkeet keskenään) 
-ja valmentajana on hyödyllistä tehdä jonkinlaista seurantaa siitä, mitä liikkeitä kukin voimistelija harjoittelee tai mitä liikkeitä tietyssä ryhmässä harjoitellaan.
+ja valmentajana on hyödyllistä tehdä jonkinlaista seurantaa siitä, mitä liikkeitä kukin voimistelija harjoittelee.
 
 Tietokannassani voidaan lisätä voimistelijoita ja liikkeitä. 
 Näiden välille tulee vaadittu monesta moneen suhde (koska voimistelijalla voi olla harjoiteltavissa useita liikkeitä 
-ja taas toisaalta liike voi yhdistyä useaan eri voimistelijaan). 
+ja taas toisaalta usea eri voimistelija voi harjoitella samaa liikettä). 
 Liikkeestä voidaan kirjata ylös sen vaikeusarvo, kuvaus liikkeen suorituksesta ja teline, jolla liike suoritetaan. 
 Lisäksi on luokat ryhmä ja vastuuvalmentaja(käyttäjä).
 
@@ -21,9 +21,9 @@ Voimistelija-luokka sisältää pääavaimen(id) ja viiteavaimet vastuuvalmentaj
 
 VoimistelijaLiike- taulu on liitostaulu voimistelijan ja liikkeen välillä sisältäen niihin viiteavaimet.
 
-Ryhmä-taulu sisältää pääavaimen(id) ja viiteavaimen vastuuvalmentaja_id, ryhmän nimen. 
+Ryhmä-taulu sisältää pääavaimen(id) ja viiteavaimen vastuuvalmentaja_id sekä attribuuttina ryhmän nimen. 
    
-Vastuuvalmentaja(käyttäjä)-luokka sisältää pääavaimen(id) ja attribuuttina nimen, salasanan ja käyttäjätunnuksen.
+Vastuuvalmentaja(käyttäjä)-luokka sisältää pääavaimen(id) ja attribuutteina nimen, salasanan ja käyttäjätunnuksen.
 
 #### User storyt:
 * Valmentaja voi kirjautua järjestelmään
@@ -35,5 +35,6 @@ Vastuuvalmentaja(käyttäjä)-luokka sisältää pääavaimen(id) ja attribuutti
 * Valmentaja voi tarkastella kaikkia lisättyjä voimistelijoita, vaikka ei olisi itse lisännyt kaikkia niistä
 * Valmentaja voi tarkastella kaikkia lisättyjä ryhmiä, vaikka ei olisi itse lisännyt kaikkia niistä
 * Valmentaja voi muokata voimistelijoiden tietoja järjestelmässä, esimerkiksi vaihtaa ryhmän nimeä
-* Valmentaja voi tarkastella ryhmien tietoja ja nähdä esimerkiksi kuhunkin ryhmään lisätyt voimistelijat ja heidän suorittamansa liikkeet
+* Valmentaja voi tarkastella ryhmien tietoja ja nähdä esimerkiksi kuhunkin ryhmään lisätyt voimistelijat
+* Valmentaja voi nähdä listan kunkin voimistelijan harjoittelemista liikkeistä
 * Valmentaja voi lisätä voimistelijalle, jonka on itse lisännyt järjestelmään, uuden harjoiteltavan liikkeen
