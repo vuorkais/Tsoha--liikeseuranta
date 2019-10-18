@@ -63,6 +63,10 @@ def ryhmat_update(ryhma_id):
         return render_template("ryhmat/uusinimi.html", form = form, ryhma_id=ryhma_id)
 
     r = Ryhma.query.get(ryhma_id)
+    
+    if r.vastuuvalmentaja_id != current_user.id:
+        return login_manager.unauthorized()
+
     r.ryhma = form.ryhma.data
     
     db.session().commit()

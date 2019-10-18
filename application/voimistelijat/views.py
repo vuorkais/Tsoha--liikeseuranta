@@ -17,6 +17,9 @@ def voimistelijat_index():
 def voimistelijat_remove(voimistelija_id):
 
     v = Voimistelija.query.get(voimistelija_id)
+
+    if v.vastuuvalmentaja_id != current_user.id:
+        return login_manager.unauthorized()
     
     db.session().delete(v)
     db.session().commit()
@@ -46,12 +49,12 @@ def voimistelijat_lisaa(ryhma_id):
 def lisaa_liike_voimistelijalle(voimistelija_id):
 
     v = Voimistelija.query.get(voimistelija_id)
-#    voimistelija_liikkeet = voimistelija.listaa_liikkeet()
-    form = LisaaLiikeForm()
-    form.liike.choices = Liike.listaa_liikkeet()
-    
+
     if v.vastuuvalmentaja_id != current_user.id:
         return login_manager.unauthorized()
+
+    form = LisaaLiikeForm()
+    form.liike.choices = Liike.listaa_liikkeet()
 
     if request.method == "POST":
         lisays(v, form)
@@ -59,15 +62,6 @@ def lisaa_liike_voimistelijalle(voimistelija_id):
 
     return render_template("voimistelijat/uusiliike.html", voimistelija_id=voimistelija_id, form=form)
 
-    #if not form.validate():
-    #    return render_template("voimistelijat/uusiliike.html", form = form, voimistelija_id= voimistelija_id)
-#    form.liike.choices = Liike.listaa_liikkeet()
-#    form.liikevaihtoehdot = Voimistelija.listaa_liikkeet()
-#    if not form.validate():
-#    return render_template("voimistelijat/uusiliike.html", form = form, voimistelija_id= voimistelija_id)
-    
-#    l = Liike(form.id.data)
-    #return redirect(url_for("voimistelijat_index"))
 
 def lisays(voimistelija, form):
 
@@ -75,11 +69,7 @@ def lisays(voimistelija, form):
     stringliike = str(liike)
     intliike= int(''.join(filter(str.isdigit, stringliike)))
     intvoimistelija = voimistelija.id
-    #print(intliike)
-    
-    #vl = Voimistelija.voimistelijaliike
-   
-    #db.session().commit()
+
     statement = VoimistelijaLiike.insert().values(voimistelija_id=intvoimistelija, liike_id=intliike)
     db.session().execute(statement)
     db.session().commit()
@@ -109,7 +99,7 @@ def save_changes(voimistelija, form, new = False):
     ryhma = [Ryhma.query.get(id) for id in form.ryhma.data]
     stringryhma = str(ryhma)
     intryhma= int(''.join(filter(str.isdigit, stringryhma)))
-    #print(intryhma)
+
     voimistelija.ryhma_id = intryhma
    
     db.session().commit()
@@ -117,5 +107,5 @@ def save_changes(voimistelija, form, new = False):
 
 @app.route("/voimistelijat/<voimistelija_id>/liikkeet", methods=["GET"])
 def voimistelijat_liikelista(voimistelija_id):
-    #liikelistaus = Liike.listaa_voimistelijan_liikkeet(voimistelija_id)
+
     return render_template("voimistelijat/liikkeet.html", voimistelija_id= voimistelija_id, listaa_voimistelijan_liikkeet= Liike.listaa_voimistelijan_liikkeet(voimistelija_id))

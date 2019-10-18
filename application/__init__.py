@@ -50,7 +50,7 @@ def login_required(role="ANY"):
             
             unauthorized = False
 
-            if role != "ANY":
+            if role != "ADMIN":
                 unauthorized = True
                 
                 for user_role in current_user.roles():
