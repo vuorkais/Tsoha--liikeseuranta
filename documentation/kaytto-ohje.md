@@ -14,15 +14,15 @@ Sovelluksessa osa toiminnoista vaatii kirjautumista. Kirjautumaan pääsee oikea
 
 #### Miten Perustoiminnot Tehdään?
 
-Sovelluksen yläpalkista löytyy linkit olennaisimpiin toimintoihin. Sovelluksen etusivulle pääsee vasemmasta yläkulmasta Liikeseuranta- kohdasta.
+Sovelluksen yläpalkista löytyy linkit olennaisimpiin toimintoihin. Sovelluksen etusivulle pääsee vasemmasta yläkulmasta Liikeseuranta- kohdasta, josta löytyy tilastoja valmentajien ryhmistä ja voimistelijoista.
 
 ###### Listaa ryhmät
 
-Kohdasta pääsee ryhmälistaukseen, jossa on mahdollisuus lisätä uusi ryhmä. Listauksessa ne ryhmät, jotka on itse luonut, on mahdollista poistaa ja niihin voi myös lisätä voimistelijoita. Luodessa uutta voimistelijaa, on hänet aina lisättävä johonkin ryhmään. Listassa ryhmien nimet toimivat linkkeinä kunkin ryhmän tietoihin.
+Kohdasta pääsee ryhmälistaukseen, jossa on mahdollisuus lisätä uusi ryhmä. Listauksessa ne ryhmät, jotka on itse luonut, on mahdollista poistaa ja niihin voi myös lisätä voimistelijoita. Luodessa uutta voimistelijaa, on hänet aina lisättävä johonkin ryhmään. Listassa ryhmien nimet toimivat linkkeinä kunkin ryhmän tietoihin. Ryhmän tiedoissa on lista ryhmään kuuluvista voimistelijoista.
 
 ###### Listaa voimistelijat
 
-Kohdasta pääsee voimistelijalistaukseen. Listauksessa ne voimistelijat, jotka on itse lisännyt, on mahdollista poistaa ja heille voi myös lisätä jo aiemmin sovellukseen lisättyjä liikkeitä.
+Kohdasta pääsee voimistelijalistaukseen. Listauksessa ne voimistelijat, jotka on itse lisännyt, on mahdollista poistaa ja heille voi myös lisätä jo aiemmin sovellukseen lisättyjä liikkeitä. Listassa voimistelijoiden nimet toimivat linkkeinä kunkin voimistelijan tietoihin. Voimistelijan tiedoissa on lista voimistelijan harjoittelemista liikkeistä.
 
 ###### Listaa liikkeet
 
