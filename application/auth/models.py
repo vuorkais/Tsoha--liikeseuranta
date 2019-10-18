@@ -51,7 +51,7 @@ class User(Base):
         stmt = text("SELECT Vastuuvalmentaja.id, Vastuuvalmentaja.name, COUNT(Voimistelija.id) AS voimistelijat FROM Vastuuvalmentaja"
                     " LEFT JOIN Voimistelija ON Voimistelija.vastuuvalmentaja_id = Vastuuvalmentaja.id"
                     " GROUP BY Vastuuvalmentaja.id")
-        res = db.engine.execute(stmt)
+        res = db.engine.execute(stmt) 
 
         response = []
         for row in res:

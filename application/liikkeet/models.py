@@ -39,17 +39,3 @@ class Liike(Base):
             response.append({"id":row[0], "nimi":row[1], "teline":row[2]})
         return response
     
-#    @staticmethod
-#    def listaa_ryhman_liikkeet(ryhma_id):
-#        stmt = text("SELECT Liike.nimi AS Liike, Liike.teline AS Teline, Liike.vaikeusarvo AS Vaikeus FROM Liike"
-#                    " INNER JOIN VoimistelijaLiike ON VoimistelijaLiike.liike_id = Liike.id"
-#                    " INNER JOIN Voimistelija ON Voimistelija.id= VoimistelijaLiike.voimistelija_id"
-#                    " INNER JOIN Ryhma ON Ryhma.id= Voimistelija.ryhma_id"
-#                    " WHERE Ryhma.id= :ryhma_id"
-#                    " GROUP BY Liike.nimi, Liike.teline").params(ryhma_id=1)
-
-#        res = db.engine.execute(stmt)
-#        response = []
-#        for row in res:
-#            response.append({"liike":row[0], "teline":row[1], "vaikeus":row[2]})
-#        return response
