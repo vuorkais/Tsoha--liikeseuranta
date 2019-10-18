@@ -13,9 +13,9 @@ Voimistelija-luokka sisältää pääavaimen(id) ja viiteavaimet vastuuvalmentaj
 
 VoimistelijaLiike- taulu on liitostaulu voimistelijan ja liikkeen välillä sisältäen niihin viiteavaimet.
 
-Ryhmä-taulu sisältää pääavaimen(id) ja viiteavaimen vastuuvalmentaja_id, ryhmän nimen. 
+Ryhmä-taulu sisältää pääavaimen(id) ja viiteavaimen vastuuvalmentaja_id sekä attribuuttina ryhmän nimen. 
    
-Vastuuvalmentaja(käyttäjä)-luokka sisältää pääavaimen(id) ja attribuuttina nimen, salasanan ja käyttäjätunnuksen.
+Vastuuvalmentaja(käyttäjä)-luokka sisältää pääavaimen(id) ja attribuutteina nimen, salasanan ja käyttäjätunnuksen.
 
 
 ### CREATE TABLE -lauseet
